@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist gettext-domain="l510_manager">
-	<schema id="org.example.App" path="/org/example/App/">
+	<schema id="com.wolfteck.L510Manager" path="/com/wolfteck/L510Manager/">
 	</schema>
 </schemalist>

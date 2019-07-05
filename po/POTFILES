@@ -1,6 +1,6 @@
-data/org.example.App.desktop.in
-data/org.example.App.appdata.xml.in
-data/org.example.App.gschema.xml
+data/com.wolfteck.L510Manager.desktop.in
+data/com.wolfteck.L510Manager.appdata.xml.in
+data/com.wolfteck.L510Manager.gschema.xml
 src/window.ui
 src/main.vala
 src/window.vala

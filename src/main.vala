@@ -17,7 +17,7 @@
  */
 
 int main (string[] args) {
-	var app = new Gtk.Application ("org.example.App", ApplicationFlags.FLAGS_NONE);
+	var app = new Gtk.Application ("com.wolfteck.L510Manager", ApplicationFlags.FLAGS_NONE);
 	app.activate.connect (() => {
 		var win = app.active_window;
 		if (win == null) {

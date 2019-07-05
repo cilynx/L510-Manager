@@ -17,7 +17,7 @@
  */
 
 namespace L510_manager {
-	[GtkTemplate (ui = "/org/example/App/window.ui")]
+	[GtkTemplate (ui = "/com/wolfteck/L510Manager/window.ui")]
 	public class Window : Gtk.ApplicationWindow {
         [GtkChild]
         Gtk.TreeView all_parameters_treeview;

@@ -1,6 +1,6 @@
 desktop_file = i18n.merge_file(
-  input: 'org.example.App.desktop.in',
-  output: 'org.example.App.desktop',
+  input: 'com.wolfteck.L510Manager.desktop.in',
+  output: 'com.wolfteck.L510Manager.desktop',
   type: 'desktop',
   po_dir: '../po',
   install: true,
@@ -15,8 +15,8 @@ if desktop_utils.found()
 endif
 
 appstream_file = i18n.merge_file(
-  input: 'org.example.App.appdata.xml.in',
-  output: 'org.example.App.appdata.xml',
+  input: 'com.wolfteck.L510Manager.appdata.xml.in',
+  output: 'com.wolfteck.L510Manager.appdata.xml',
   po_dir: '../po',
   install: true,
   install_dir: join_paths(get_option('datadir'), 'appdata')
@@ -29,7 +29,7 @@ if appstream_util.found()
   )
 endif
 
-install_data('org.example.App.gschema.xml',
+install_data('com.wolfteck.L510Manager.gschema.xml',
   install_dir: join_paths(get_option('datadir'), 'glib-2.0/schemas')
 )
 
