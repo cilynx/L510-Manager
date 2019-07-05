@@ -21,13 +21,29 @@ namespace L510_manager {
 	public class Window : Gtk.ApplicationWindow {
         [GtkChild]
         Gtk.TreeView all_parameters_treeview;
+        [GtkChild]
+        Gtk.Label all_parameters_label;
 
 		public Window (Gtk.Application app) {
 			Object (application: app);
+
             setup_treeview (all_parameters_treeview);
             add (all_parameters_treeview);
 
+            var selection = all_parameters_treeview.get_selection ();
+            selection.changed.connect (this.on_selection_changed);
 		}
+
+        private void on_selection_changed (Gtk.TreeSelection selection) {
+            Gtk.TreeModel model;
+            Gtk.TreeIter iter;
+            string parameter;
+
+            if (selection.get_selected (out model, out iter)) {
+                model.get (iter, 0, out parameter);
+                all_parameters_label.set_text (parameter);
+            }
+        }
 
 		private void setup_treeview (Gtk.TreeView view) {
 		    var store = new Gtk.TreeStore (1, typeof (string));
