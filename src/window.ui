@@ -20,26 +20,57 @@
         <property name="visible">True</property>
         <property name="can_focus">True</property>
         <child>
-          <placeholder/>
+          <object class="GtkPaned">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <child>
+              <object class="GtkTreeView" id="all_parameters_treeview">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <child internal-child="selection">
+                  <object class="GtkTreeSelection"/>
+                </child>
+              </object>
+              <packing>
+                <property name="resize">False</property>
+                <property name="shrink">True</property>
+              </packing>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
         </child>
         <child type="tab">
           <object class="GtkLabel">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label" translatable="yes">page 1</property>
+            <property name="label" translatable="yes">All Parameters</property>
           </object>
           <packing>
             <property name="tab_fill">False</property>
           </packing>
         </child>
         <child>
-          <placeholder/>
+          <object class="GtkPaned">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="position">1</property>
+          </packing>
         </child>
         <child type="tab">
           <object class="GtkLabel">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label" translatable="yes">page 2</property>
+            <property name="label" translatable="yes">Common Operations</property>
           </object>
           <packing>
             <property name="position">1</property>

@@ -19,8 +19,50 @@
 namespace L510_manager {
 	[GtkTemplate (ui = "/org/example/App/window.ui")]
 	public class Window : Gtk.ApplicationWindow {
+        [GtkChild]
+        Gtk.TreeView all_parameters_treeview;
+
 		public Window (Gtk.Application app) {
 			Object (application: app);
+            setup_treeview (all_parameters_treeview);
+            add (all_parameters_treeview);
+
+		}
+
+		private void setup_treeview (Gtk.TreeView view) {
+		    var store = new Gtk.TreeStore (1, typeof (string));
+		    view.set_model (store);
+
+		    view.insert_column_with_attributes(-1, "Parameter", new Gtk.CellRendererText (), "text", 0, null);
+
+//            Gtk.TreeIter root;
+            Gtk.TreeIter group_iter;
+            Gtk.TreeIter parameter_iter;
+
+//            store.append (out root, null);
+//            store.set (root, 0, "All Parameters", -1);
+
+            store.append (out group_iter, null);
+            store.set (group_iter, 0, "Group 00: Basic Parameters", -1);
+
+            store.append (out parameter_iter, group_iter);
+            store.set (parameter_iter, 0, "00-00: Control Method", -1);
+            store.append (out parameter_iter, group_iter);
+            store.set (parameter_iter, 0, "00-01: Motor Rotation", -1);
+            store.append (out parameter_iter, group_iter);
+            store.set (parameter_iter, 0, "00-02: Main Run Source Selection", -1);
+
+            store.append (out group_iter, null);
+            store.set (group_iter, 0, "Group 01: V/F Control Parameters", -1);
+
+            store.append (out parameter_iter, group_iter);
+            store.set (parameter_iter, 0, "01-00: Volts/Hz Patterns", -1);
+            store.append (out parameter_iter, group_iter);
+            store.set (parameter_iter, 0, "01-01: V/F Max Voltage", -1);
+            store.append (out parameter_iter, group_iter);
+            store.set (parameter_iter, 0, "01-02: Max Frequency", -1);
+
+//            view.expand_all ();
 		}
 	}
 }
