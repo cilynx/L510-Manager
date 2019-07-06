@@ -58,26 +58,26 @@ namespace L510_manager {
 //            store.append (out root, null);
 //            store.set (root, 0, "All Parameters", -1);
 
-            store.append (out group_iter, null);
-            store.set (group_iter, 0, "Group 00: Basic Parameters", -1);
-
-            store.append (out parameter_iter, group_iter);
-            store.set (parameter_iter, 0, "00-00: Control Method", -1);
-            store.append (out parameter_iter, group_iter);
-            store.set (parameter_iter, 0, "00-01: Motor Rotation", -1);
-            store.append (out parameter_iter, group_iter);
-            store.set (parameter_iter, 0, "00-02: Main Run Source Selection", -1);
-
-            store.append (out group_iter, null);
-            store.set (group_iter, 0, "Group 01: V/F Control Parameters", -1);
-
-            store.append (out parameter_iter, group_iter);
-            store.set (parameter_iter, 0, "01-00: Volts/Hz Patterns", -1);
-            store.append (out parameter_iter, group_iter);
-            store.set (parameter_iter, 0, "01-01: V/F Max Voltage", -1);
-            store.append (out parameter_iter, group_iter);
-            store.set (parameter_iter, 0, "01-02: Max Frequency", -1);
-
+            try {
+                var stream = resources_open_stream ("/com/wolfteck/L510Manager/json/parameters.json", ResourceLookupFlags.NONE);
+                Json.Parser parser = new Json.Parser ();
+                parser.load_from_stream (stream);
+                var parameters = parser.get_root ().get_object ();
+                foreach (string group_number in parameters.get_members ()) {
+                    var group = parameters.get_member (group_number).get_object ();
+                    store.append (out group_iter, null);
+                    store.set (group_iter, 0, group_number + "-XX: " + group.get_string_member ("name"), -1);
+                    foreach (string parameter_number in group.get_members ()) {
+                        var parameter = group.get_member (parameter_number).get_object ();
+                        if (parameter_number != "name") {
+                            store.append (out parameter_iter, group_iter);
+                            store.set (parameter_iter, 0, group_number + "-" + parameter_number + ": " + parameter.get_string_member ("name"), -1);
+                        }
+                    }
+                }
+            } catch (GLib.Error e) {
+                error ("can't load parameters from resource: %s", e.message);
+            }
 //            view.expand_all ();
 		}
 	}

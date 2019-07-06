@@ -1,0 +1,1035 @@
+{
+   "00" : {
+      "00" : {
+         "default" : "0",
+         "name" : "Control Mode"
+      },
+      "01" : {
+         "default" : "0",
+         "name" : "Motor rotation"
+      },
+      "02" : {
+         "default" : "1",
+         "name" : "Main Run Source Selection"
+      },
+      "03" : {
+         "default" : "0",
+         "name" : "Alternative Run Source Selection"
+      },
+      "04" : {
+         "default" : "0",
+         "name" : "Operation Modes For External Terminals"
+      },
+      "05" : {
+         "default" : "2",
+         "name" : "Main Frequency Source Selection"
+      },
+      "06" : {
+         "default" : "0",
+         "name" : "Alternative Frequency Source Selection"
+      },
+      "07" : {
+         "default" : "0",
+         "name" : "Main and Alternative Frequency Command modes"
+      },
+      "08" : {
+         "default" : "0.00",
+         "name" : "Communication Frequency Command(Hz)"
+      },
+      "09" : {
+         "default" : "0",
+         "name" : "Frequency command save mode(communication mode)"
+      },
+      "10" : {
+         "default" : "0",
+         "name" : "Initial Frequency Selection(keypad mode)"
+      },
+      "11" : {
+         "default" : "50.00",
+         "name" : "Initial Frequency Keypad mode(Hz)"
+      },
+      "12" : {
+         "default" : "50.00",
+         "name" : "Frequency Upper Limit(Hz)"
+      },
+      "13" : {
+         "default" : "0.00",
+         "name" : "Frequency Lower Limit(Hz)"
+      },
+      "14" : {
+         "default" : "10.0",
+         "name" : "Acceleration Time 1(Sec)"
+      },
+      "15" : {
+         "default" : "10.0",
+         "name" : "Deceleration Time 1(Sec)"
+      },
+      "16" : {
+         "default" : "10.0",
+         "name" : "Acceleration Time 2(Sec)"
+      },
+      "17" : {
+         "default" : "10.0",
+         "name" : "Deceleration Time 2(Sec)"
+      },
+      "18" : {
+         "default" : "2.00",
+         "name" : "Jog Frequency(Hz)"
+      },
+      "19" : {
+         "default" : "0.5",
+         "name" : "Jog Acceleration Time(Sec)"
+      },
+      "20" : {
+         "default" : "0.5",
+         "name" : "Jog Deceleration Time(Sec)"
+      },
+      "name" : "The Basic Parameters Group"
+   },
+   "01" : {
+      "00" : {
+         "default" : "1",
+         "name" : "Volts/Hz Patterns(V/F)"
+      },
+      "01" : {
+         "default" : "220.0",
+         "name" : "V/F max voltage(Vac)"
+      },
+      "02" : {
+         "default" : "50.00",
+         "name" : "Max Frequency(Hz)"
+      },
+      "03" : {
+         "default" : "100.0",
+         "name" : "Max Frequency Voltage Ratio(%)"
+      },
+      "04" : {
+         "default" : "25.00",
+         "name" : "Mid Frequency 2(Hz)"
+      },
+      "05" : {
+         "default" : "50.0",
+         "name" : "Mid Frequency Voltage Ratio 2(%)"
+      },
+      "06" : {
+         "default" : "10.00",
+         "name" : "Mid Frequency 1(Hz)"
+      },
+      "07" : {
+         "default" : "20.0",
+         "name" : "Mid Frequency Voltage Ratio 1(%)"
+      },
+      "08" : {
+         "default" : "0.50",
+         "name" : "Min Frequency(Hz)"
+      },
+      "09" : {
+         "default" : "1.0",
+         "name" : "Min Frequency Voltage Ratio(%)"
+      },
+      "10" : {
+         "default" : "0.0",
+         "name" : "Volts/Hz Curve Modification(Torque Boost)(%)"
+      },
+      "11" : {
+         "default" : "0.00",
+         "name" : "V/F start Frequency(Hz)"
+      },
+      "12" : {
+         "default" : "0.0",
+         "name" : "No-load oscillation suppression gain(%)"
+      },
+      "13" : {
+         "default" : "800",
+         "name" : "Motor Hunting Prevention Coefficient"
+      },
+      "14" : {
+         "default" : "0",
+         "name" : "Motor Hunting Prevention Gain(%)"
+      },
+      "15" : {
+         "default" : "5.0",
+         "name" : "Motor Hunting Prevention Limit(%)"
+      },
+      "16" : {
+         "default" : "0.1",
+         "name" : "Auto-Torque Compensation Filter Coefficient(ms)"
+      },
+      "17" : {
+         "default" : "0",
+         "name" : "Auto-torque Compensation Gain(%)"
+      },
+      "18" : {
+         "default" : "2.00",
+         "name" : "Auto-torque Compensation Frequency(Hz)"
+      },
+      "name" : "V/F Pattern selection and Setup"
+   },
+   "02" : {
+      "00" : {
+         "default" : "0.5",
+         "name" : "Motor No Load Current(A)"
+      },
+      "01" : {
+         "default" : "1.0",
+         "name" : "Motor Rated Current(OL1)(A)"
+      },
+      "02" : {
+         "default" : "0.0",
+         "name" : "V/F Slip Compensation(%)"
+      },
+      "03" : {
+         "default" : "1680",
+         "name" : "Motor Rated Speed(Rpm)"
+      },
+      "04" : {
+         "default" : "220.0",
+         "name" : "Motor rated voltage(Vac)"
+      },
+      "05" : {
+         "default" : "1.5",
+         "name" : "Motor Rated Power(kW)"
+      },
+      "06" : {
+         "default" : "50.0",
+         "name" : "Motor Rated Frequency(Hz)"
+      },
+      "07" : {
+         "default" : "0",
+         "name" : "Motor Auto Tuning"
+      },
+      "08" : {
+         "default" : "380",
+         "name" : "Stator Resistor Gain"
+      },
+      "09" : {
+         "default" : "300",
+         "name" : "Rotor Resistor Gain"
+      },
+      "13" : {
+         "default" : "50",
+         "name" : "SLV Slip Compensation Gain(%)"
+      },
+      "14" : {
+         "default" : "100",
+         "name" : "SLV Torque Compensation Gain(%)"
+      },
+      "15" : {
+         "default" : "50",
+         "name" : "Low Frequency Torque Gain(%)"
+      },
+      "16" : {
+         "default" : "100",
+         "name" : "SLV Without Load Slip Compensation Gain(%)"
+      },
+      "17" : {
+         "default" : "150",
+         "name" : "SLV With Load Slip Compensation Gain(%)"
+      },
+      "18" : {
+         "default" : "100",
+         "name" : "SLV With Load Torque Compensation Gain"
+      },
+      "19" : {
+         "default" : "0",
+         "name" : "SLV Slip Compensation Select"
+      },
+      "name" : "Motor Parameters"
+   },
+   "03" : {
+      "00" : {
+         "default" : "0",
+         "name" : "Multifunction Input Term.S1"
+      },
+      "01" : {
+         "default" : "1",
+         "name" : "Multifunction Input Term.S2"
+      },
+      "02" : {
+         "default" : "2",
+         "name" : "Multifunction Input Term.S3"
+      },
+      "03" : {
+         "default" : "3",
+         "name" : "Multifunction Input Term.S4"
+      },
+      "04" : {
+         "default" : "17",
+         "name" : "Multifunction Input Term.S5"
+      },
+      "06" : {
+         "default" : "0.00",
+         "name" : "Up/Down Frequency band(Hz)"
+      },
+      "07" : {
+         "default" : "0",
+         "name" : "Up/Down keep Frequency modes"
+      },
+      "08" : {
+         "default" : "10",
+         "name" : "S1~S5 scan confirmation(2ms)"
+      },
+      "09" : {
+         "default" : "00000",
+         "name" : "S1~S5 Switch Type Select"
+      },
+      "11" : {
+         "default" : "1",
+         "name" : "Output Relay(RY1)"
+      },
+      "13" : {
+         "default" : "0.00",
+         "name" : "Output frequency detection level(Hz)"
+      },
+      "14" : {
+         "default" : "2.00",
+         "name" : "Frequency Detection band(Hz)"
+      },
+      "15" : {
+         "default" : "0.1",
+         "name" : "Output Current Detection Level(A)"
+      },
+      "16" : {
+         "default" : "0.1",
+         "name" : "Output Current Detection Period(Sec)"
+      },
+      "17" : {
+         "default" : "0.00",
+         "name" : "External Brake Release Level(Hz)"
+      },
+      "18" : {
+         "default" : "0.00",
+         "name" : "External Brake Engage Level(Hz)"
+      },
+      "19" : {
+         "default" : "0",
+         "name" : "Relay Output function type"
+      },
+      "20" : {
+         "default" : "380.0",
+         "name" : "Braking Transistor On Level(Vdc)"
+      },
+      "21" : {
+         "default" : "340.0",
+         "name" : "Brake Transistor Off Level(Vdc)"
+      },
+      "name" : "Multi function Digital Inputs/Outputs"
+   },
+   "04" : {
+      "00" : {
+         "default" : "0",
+         "name" : "AVI/ACI Analog Input Signal Type Select"
+      },
+      "01" : {
+         "default" : "50",
+         "name" : "AVI Signal Verification Scan rate(2ms)"
+      },
+      "02" : {
+         "default" : "100",
+         "name" : "AVI Gain(%)"
+      },
+      "03" : {
+         "default" : "0",
+         "name" : "AVI Bias(%)"
+      },
+      "04" : {
+         "default" : "0",
+         "name" : "AVI Bias Selection"
+      },
+      "05" : {
+         "default" : "0",
+         "name" : "AVI Slope"
+      },
+      "06" : {
+         "default" : "50",
+         "name" : "ACI Signal Verification Scan rate(2ms)"
+      },
+      "07" : {
+         "default" : "100",
+         "name" : "ACI Gain(%)"
+      },
+      "08" : {
+         "default" : "0",
+         "name" : "ACI Bias(%)"
+      },
+      "09" : {
+         "default" : "0",
+         "name" : "ACI Bias Selection"
+      },
+      "10" : {
+         "default" : "0",
+         "name" : "ACI Slope"
+      },
+      "11" : {
+         "default" : "0",
+         "name" : "Analog Output Mode(AO)"
+      },
+      "12" : {
+         "default" : "100",
+         "name" : "Analog Output AO Gain(%)"
+      },
+      "13" : {
+         "default" : "0",
+         "name" : "Analog Output AO Bias(%)"
+      },
+      "14" : {
+         "default" : "0",
+         "name" : "AO Bias Selection"
+      },
+      "15" : {
+         "default" : "0",
+         "name" : "AO Slope"
+      },
+      "16" : {
+         "default" : "100",
+         "name" : "Potentiometer Gain on Keypad(%)"
+      },
+      "17" : {
+         "default" : "0",
+         "name" : "Potentiometer Bias on Keypad(%)"
+      },
+      "18" : {
+         "default" : "0",
+         "name" : "Potentiometer Bias Selection on Keypad"
+      },
+      "19" : {
+         "default" : "0",
+         "name" : "Potentiometer Slope on Keypad"
+      },
+      "name" : "Analog signal inputs/ Analogue output functions"
+   },
+   "05" : {
+      "00" : {
+         "default" : "0",
+         "name" : "Preset Speed Control mode Selection"
+      },
+      "01" : {
+         "default" : "5.00",
+         "name" : "Preset Speed 0(Keypad Freq)(Hz)"
+      },
+      "02" : {
+         "default" : "5.00",
+         "name" : "Preset Speed 1(Hz)"
+      },
+      "03" : {
+         "default" : "10.00",
+         "name" : "Preset Speed 2(Hz)"
+      },
+      "04" : {
+         "default" : "20.00",
+         "name" : "Preset Speed 3(Hz)"
+      },
+      "05" : {
+         "default" : "30.00",
+         "name" : "Preset Speed 4(Hz)"
+      },
+      "06" : {
+         "default" : "40.00",
+         "name" : "Preset Speed 5(Hz)"
+      },
+      "07" : {
+         "default" : "50.00",
+         "name" : "Preset Speed 6(Hz)"
+      },
+      "08" : {
+         "default" : "50.00",
+         "name" : "Preset Speed 7(Hz)"
+      },
+      "17" : {
+         "default" : "10.0",
+         "name" : "Preset Speed 0-Acctime(Sec)"
+      },
+      "18" : {
+         "default" : "10.0",
+         "name" : "Preset Speed 0-Dectime(Sec)"
+      },
+      "19" : {
+         "default" : "10.0",
+         "name" : "Preset Speed 1-Acctime(Sec)"
+      },
+      "20" : {
+         "default" : "10.0",
+         "name" : "Preset Speed 1-Dectime(Sec)"
+      },
+      "21" : {
+         "default" : "10.0",
+         "name" : "Preset Speed 2-Acctime(Sec)"
+      },
+      "22" : {
+         "default" : "10.0",
+         "name" : "Preset Speed 2-Dectime(Sec)"
+      },
+      "23" : {
+         "default" : "10.0",
+         "name" : "Preset Speed 3-Acctime(Sec)"
+      },
+      "24" : {
+         "default" : "10.0",
+         "name" : "Preset Speed 3-Dectime(Sec)"
+      },
+      "25" : {
+         "default" : "10.0",
+         "name" : "Preset Speed 4-Acctime(Sec)"
+      },
+      "26" : {
+         "default" : "10.0",
+         "name" : "Preset Speed 4-Dectime(Sec)"
+      },
+      "27" : {
+         "default" : "10.0",
+         "name" : "Preset Speed 5-Acctime(Sec)"
+      },
+      "28" : {
+         "default" : "10.0",
+         "name" : "Preset Speed 5-Dectime(Sec)"
+      },
+      "29" : {
+         "default" : "10.0",
+         "name" : "Preset Speed 6-Acctime(Sec)"
+      },
+      "30" : {
+         "default" : "10.0",
+         "name" : "Preset Speed 6-Dectime(Sec)"
+      },
+      "31" : {
+         "default" : "10.0",
+         "name" : "Preset Speed 7-Acctime(Sec)"
+      },
+      "32" : {
+         "default" : "10.0",
+         "name" : "Preset Speed 7-Dectime(Sec)"
+      },
+      "name" : "Preset Frequency Selections"
+   },
+   "06" : {
+      "00" : {
+         "default" : "0",
+         "name" : "Auto Run(sequencer) Mode Selection"
+      },
+      "01" : {
+         "default" : "0.00",
+         "name" : "Auto_Run Mode Frequency Command 1(Hz)"
+      },
+      "02" : {
+         "default" : "0.00",
+         "name" : "Auto_Run Mode Frequency Command 2(Hz)"
+      },
+      "03" : {
+         "default" : "0.00",
+         "name" : "Auto_Run Mode Frequency Command 3(Hz)"
+      },
+      "04" : {
+         "default" : "0.00",
+         "name" : "Auto_Run Mode Frequency Command 4(Hz)"
+      },
+      "05" : {
+         "default" : "0.00",
+         "name" : "Auto_Run Mode Frequency Command 5(Hz)"
+      },
+      "06" : {
+         "default" : "0.00",
+         "name" : "Auto_Run Mode Frequency Command 6(Hz)"
+      },
+      "07" : {
+         "default" : "0.00",
+         "name" : "Auto_Run Mode Frequency Command 7(Hz)"
+      },
+      "16" : {
+         "default" : "0.0",
+         "name" : "Auto_Run Mode Running Time Setting 0(Sec)"
+      },
+      "17" : {
+         "default" : "0.0",
+         "name" : "Auto_Run Mode Running Time Setting 1(Sec)"
+      },
+      "18" : {
+         "default" : "0.0",
+         "name" : "Auto_Run Mode Running Time Setting 2(Sec)"
+      },
+      "19" : {
+         "default" : "0.0",
+         "name" : "Auto_Run Mode Running Time Setting 3(Sec)"
+      },
+      "20" : {
+         "default" : "0.0",
+         "name" : "Auto_Run Mode Running Time Setting 4(Sec)"
+      },
+      "21" : {
+         "default" : "0.0",
+         "name" : "Auto_Run Mode Running Time Setting 5(Sec)"
+      },
+      "22" : {
+         "default" : "0.0",
+         "name" : "Auto_Run Mode Running Time Setting 6(Sec)"
+      },
+      "23" : {
+         "default" : "0.0",
+         "name" : "Auto_Run Mode Running Time Setting 7(Sec)"
+      },
+      "32" : {
+         "default" : "0",
+         "name" : "Auto_Run Mode Running Direction 0"
+      },
+      "33" : {
+         "default" : "0",
+         "name" : "Auto_Run Mode Running Direction 1"
+      },
+      "34" : {
+         "default" : "0",
+         "name" : "Auto_Run Mode Running Direction 2"
+      },
+      "35" : {
+         "default" : "0",
+         "name" : "Auto_Run Mode Running Direction 3"
+      },
+      "36" : {
+         "default" : "0",
+         "name" : "Auto_Run Mode Running Direction 4"
+      },
+      "37" : {
+         "default" : "0",
+         "name" : "Auto_Run Mode Running Direction 5"
+      },
+      "38" : {
+         "default" : "0",
+         "name" : "Auto_Run Mode Running Direction 6"
+      },
+      "39" : {
+         "default" : "0",
+         "name" : "Auto_Run Mode Running Direction 7"
+      },
+      "name" : "Auto Run(Auto Sequencer)function"
+   },
+   "07" : {
+      "00" : {
+         "default" : "0",
+         "name" : "Momentary Power Loss and Restart"
+      },
+      "01" : {
+         "default" : "0.0",
+         "name" : "Auto Restart Delay Time(S)"
+      },
+      "02" : {
+         "default" : "0",
+         "name" : "Number of Auto Restart Attempts"
+      },
+      "03" : {
+         "default" : "0",
+         "name" : "Reset Mode Setting"
+      },
+      "04" : {
+         "default" : "1",
+         "name" : "Direct Running After Power Up"
+      },
+      "05" : {
+         "default" : "1.0",
+         "name" : "Delay-ON Timer(Sec)"
+      },
+      "06" : {
+         "default" : "1.50",
+         "name" : "DC Injection Brake Start Frequency In Stop mode(Hz)"
+      },
+      "07" : {
+         "default" : "5",
+         "name" : "DC Injection Brake Level In stop mode(%)"
+      },
+      "08" : {
+         "default" : "0.5",
+         "name" : "DC Injection Brake Time In stop mode(S)"
+      },
+      "09" : {
+         "default" : "0",
+         "name" : "Stopping method"
+      },
+      "10" : {
+         "default" : "0",
+         "name" : "DC Injection Brake Level In start mode(%)"
+      },
+      "11" : {
+         "default" : "0.0",
+         "name" : "DC Injection Brake Time In start mode(S)"
+      },
+      "name" : "Start/Stop command setup"
+   },
+   "08" : {
+      "00" : {
+         "default" : "00000",
+         "name" : "Trip Prevention Selection"
+      },
+      "01" : {
+         "default" : "200",
+         "name" : "Trip Prevention Level During Acceleration(%)"
+      },
+      "02" : {
+         "default" : "200",
+         "name" : "Trip Prevention Level During Deceleration(%)"
+      },
+      "03" : {
+         "default" : "200",
+         "name" : "Trip Prevention Level In Run Mode(%)"
+      },
+      "04" : {
+         "default" : "380.0",
+         "name" : "Over Voltage Prevention Level in Run Mode(Vdc)"
+      },
+      "05" : {
+         "default" : "00001",
+         "name" : "Electronic Motor Overload Protection Operation Mode"
+      },
+      "06" : {
+         "default" : "0",
+         "name" : "Operation After Overload Protection is Activated"
+      },
+      "07" : {
+         "default" : "1",
+         "name" : "Over Heat Protection(cooling fan control)"
+      },
+      "08" : {
+         "default" : "4",
+         "name" : "AVR Function(Auto Voltage Regulation)"
+      },
+      "09" : {
+         "default" : "0",
+         "name" : "Input Phase Lost Protection"
+      },
+      "10" : {
+         "default" : "0",
+         "name" : "PTC Overheat Function"
+      },
+      "11" : {
+         "default" : "0.20",
+         "name" : "PTC Signal Smoothing Time(Sec)"
+      },
+      "12" : {
+         "default" : "60",
+         "name" : "PTC Detection Time Delay(Sec)"
+      },
+      "13" : {
+         "default" : "0.7",
+         "name" : "PTC Protection Level(V)"
+      },
+      "14" : {
+         "default" : "0.3",
+         "name" : "PTC Detection Level Reset(V)"
+      },
+      "15" : {
+         "default" : "0.5",
+         "name" : "PTC Warning Level(V)"
+      },
+      "16" : {
+         "default" : "50.0",
+         "name" : "Fan Control Temperature Level(degree C)"
+      },
+      "17" : {
+         "default" : "0.0",
+         "name" : "Over Current Protection Level(A)"
+      },
+      "18" : {
+         "default" : "1.0",
+         "name" : "Over Current Protection Time(S)"
+      },
+      "19" : {
+         "default" : "0",
+         "name" : "Motor Overload Protection Level"
+      },
+      "name" : "Drive and Motor Protection functions"
+   },
+   "09" : {
+      "00" : {
+         "default" : "1",
+         "name" : "Assigned Communication Station Number"
+      },
+      "01" : {
+         "default" : "0",
+         "name" : "Communication Mode Select"
+      },
+      "02" : {
+         "default" : "2",
+         "name" : "Baud Rate Setting"
+      },
+      "03" : {
+         "default" : "0",
+         "name" : "Stop Bit Selection"
+      },
+      "04" : {
+         "default" : "0",
+         "name" : "Parity Selection"
+      },
+      "05" : {
+         "default" : "0",
+         "name" : "Data Format Selection"
+      },
+      "06" : {
+         "default" : "0.0",
+         "name" : "Communication Time-out Detection Time(Sec)"
+      },
+      "07" : {
+         "default" : "0",
+         "name" : "Communication Time-out Operation Selection"
+      },
+      "08" : {
+         "default" : "3",
+         "name" : "Error 6 verification time"
+      },
+      "09" : {
+         "default" : "5",
+         "name" : "Drive Transmit delay Time(2ms)"
+      },
+      "10" : {
+         "default" : "1",
+         "name" : "BACnet stations"
+      },
+      "name" : "Communication function setup"
+   },
+   "10" : {
+      "00" : {
+         "default" : "1",
+         "name" : "PID Target Value Selection(when 00-05\\00-06=6 this function is enabled)"
+      },
+      "01" : {
+         "default" : "2",
+         "name" : "PID Feedback Value Selection"
+      },
+      "02" : {
+         "default" : "50.0",
+         "name" : "PID Target(keypad input)(%)"
+      },
+      "03" : {
+         "default" : "0",
+         "name" : "PID Mode Selection"
+      },
+      "04" : {
+         "default" : "1.00",
+         "name" : "Feedback Gain Coefficient(%)"
+      },
+      "05" : {
+         "default" : "1.0",
+         "name" : "Proportional Gain(%)"
+      },
+      "06" : {
+         "default" : "10.0",
+         "name" : "Integral Time(Sec)"
+      },
+      "07" : {
+         "default" : "0.00",
+         "name" : "Derivative Time(Sec)"
+      },
+      "08" : {
+         "default" : "0",
+         "name" : "PID Offset"
+      },
+      "09" : {
+         "default" : "0",
+         "name" : "PID Offset Adjust(%)"
+      },
+      "10" : {
+         "default" : "0.0",
+         "name" : "PID Output Lag Filter Time(S)"
+      },
+      "11" : {
+         "default" : "0",
+         "name" : "Feedback Loss Detection Mode"
+      },
+      "12" : {
+         "default" : "0",
+         "name" : "Feedback Loss Detection Level(%)"
+      },
+      "13" : {
+         "default" : "1.0",
+         "name" : "Feedback Loss Detection Delay Time(S)"
+      },
+      "14" : {
+         "default" : "100",
+         "name" : "Integration Limit Value(%)"
+      },
+      "15" : {
+         "default" : "0",
+         "name" : "Integral Value Resets to Zero when Feedback Signal Equals the Target Value"
+      },
+      "16" : {
+         "default" : "0",
+         "name" : "Allowable Integration Error Margin (units)(1Unit=1/8192)"
+      },
+      "17" : {
+         "default" : "0.00",
+         "name" : "PID Sleep Frequency Level(Hz)"
+      },
+      "18" : {
+         "default" : "0.0",
+         "name" : "PID Sleep Function Delay Time(Sec)"
+      },
+      "19" : {
+         "default" : "0.00",
+         "name" : "PID Wake Up Frequency Level(Hz)"
+      },
+      "20" : {
+         "default" : "0.0",
+         "name" : "PID Wake Up Function Delay Time(Sec)"
+      },
+      "21" : {
+         "default" : "100",
+         "name" : "Max PID Feedback Setting"
+      },
+      "22" : {
+         "default" : "0",
+         "name" : "Min PID Feedback Setting"
+      },
+      "name" : "PID Function Setup"
+   },
+   "11" : {
+      "00" : {
+         "default" : "0",
+         "name" : "Reverse Operation Control"
+      },
+      "01" : {
+         "default" : "5",
+         "name" : "Carrier Frequency(KHz)"
+      },
+      "02" : {
+         "default" : "1",
+         "name" : "Carrier mode Selection"
+      },
+      "03" : {
+         "default" : "0",
+         "name" : "Carrier Frequency Reduction by Temperature Rise"
+      },
+      "04" : {
+         "default" : "0.0",
+         "name" : "S-Curve Acc 1(Sec)"
+      },
+      "05" : {
+         "default" : "0.0",
+         "name" : "S-Curve Acc 2(Sec)"
+      },
+      "06" : {
+         "default" : "0.0",
+         "name" : "S-Curve Dec 3(Sec)"
+      },
+      "07" : {
+         "default" : "0.0",
+         "name" : "S-Curve Dec 4(Sec)"
+      },
+      "08" : {
+         "default" : "0.00",
+         "name" : "Skip Frequency 1(Hz)"
+      },
+      "09" : {
+         "default" : "0.00",
+         "name" : "Skip Frequency 2(Hz)"
+      },
+      "10" : {
+         "default" : "0.00",
+         "name" : "Skip Frequency 3(Hz)"
+      },
+      "11" : {
+         "default" : "0.00",
+         "name" : "Skip Frequency Bandwidth(Hz)"
+      },
+      "13" : {
+         "default" : "0",
+         "name" : "Regeneration Prevention Function"
+      },
+      "14" : {
+         "default" : "380.0",
+         "name" : "Regeneration Prevention Voltage Level(V)"
+      },
+      "15" : {
+         "default" : "3.00",
+         "name" : "Regeneration Prevention Frequency Limit(Hz)"
+      },
+      "16" : {
+         "default" : "100",
+         "name" : "Regeneration Prevention Voltage Gain(%)"
+      },
+      "17" : {
+         "default" : "100",
+         "name" : "Regeneration Prevention Frequency Gain(%)"
+      },
+      "18" : {
+         "default" : "10000",
+         "name" : "Speed loop proportion gain"
+      },
+      "19" : {
+         "default" : "800",
+         "name" : "Speed loop integration gain"
+      },
+      "20" : {
+         "default" : "0",
+         "name" : "Speed loop differential gain"
+      },
+      "21" : {
+         "default" : "0",
+         "name" : "Stop key Selection"
+      },
+      "name" : "Performance Control functions"
+   },
+   "12" : {
+      "00" : {
+         "default" : "00321",
+         "name" : "Extended Display Mode"
+      },
+      "01" : {
+         "default" : "0",
+         "name" : "PID Feedback Display format"
+      },
+      "02" : {
+         "default" : "0",
+         "name" : "PID Feedback Display Unit Setting"
+      },
+      "03" : {
+         "default" : "1500",
+         "name" : "Custom Units(Line Speed) Value(RPM)"
+      },
+      "04" : {
+         "default" : "0",
+         "name" : "Custom Units(Line Speed) Display Mode"
+      },
+      "05" : {
+         "name" : "Input and Output Logic status display(S1 to S5)and RY1"
+      },
+      "06" : {
+         "name" : "Output Power"
+      },
+      "07" : {
+         "name" : "Motor Current Percent"
+      },
+      "name" : "Digital Display and Monitor functions"
+   },
+   "13" : {
+      "00" : {
+         "name" : "Drive Horsepower Code"
+      },
+      "01" : {
+         "name" : "Software Version"
+      },
+      "02" : {
+         "default" : "0",
+         "name" : "Fault Log(Last 3 Faults)"
+      },
+      "03" : {
+         "default" : "0",
+         "name" : "Accumulated Operation Time 1(hour)"
+      },
+      "04" : {
+         "default" : "0",
+         "name" : "Accumulated Operation Time 2(day)"
+      },
+      "05" : {
+         "default" : "0",
+         "name" : "Accumulated Operation Time Mode"
+      },
+      "06" : {
+         "default" : "0",
+         "name" : "Parameter Lock"
+      },
+      "07" : {
+         "default" : "00000",
+         "name" : "Parameter Lock Code"
+      },
+      "08" : {
+         "default" : "0000",
+         "name" : "Reset Drive to Factory Settings"
+      },
+      "name" : "Inspection and Maintenance functions"
+   }
+}
