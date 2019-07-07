@@ -34,7 +34,8 @@
       },
       "08" : {
          "default" : "0.00",
-         "name" : "Communication Frequency Command(Hz)"
+         "name" : "Communication Frequency Command",
+         "unit" : "Hz"
       },
       "09" : {
          "default" : "0",
@@ -46,43 +47,53 @@
       },
       "11" : {
          "default" : "50.00",
-         "name" : "Initial Frequency Keypad mode(Hz)"
+         "name" : "Initial Frequency Keypad mode",
+         "unit" : "Hz"
       },
       "12" : {
          "default" : "50.00",
-         "name" : "Frequency Upper Limit(Hz)"
+         "name" : "Frequency Upper Limit",
+         "unit" : "Hz"
       },
       "13" : {
          "default" : "0.00",
-         "name" : "Frequency Lower Limit(Hz)"
+         "name" : "Frequency Lower Limit",
+         "unit" : "Hz"
       },
       "14" : {
          "default" : "10.0",
-         "name" : "Acceleration Time 1(Sec)"
+         "name" : "Acceleration Time 1",
+         "unit" : "Seconds"
       },
       "15" : {
          "default" : "10.0",
-         "name" : "Deceleration Time 1(Sec)"
+         "name" : "Deceleration Time 1",
+         "unit" : "Seconds"
       },
       "16" : {
          "default" : "10.0",
-         "name" : "Acceleration Time 2(Sec)"
+         "name" : "Acceleration Time 2",
+         "unit" : "Seconds"
       },
       "17" : {
          "default" : "10.0",
-         "name" : "Deceleration Time 2(Sec)"
+         "name" : "Deceleration Time 2",
+         "unit" : "Seconds"
       },
       "18" : {
          "default" : "2.00",
-         "name" : "Jog Frequency(Hz)"
+         "name" : "Jog Frequency",
+         "unit" : "Hz"
       },
       "19" : {
          "default" : "0.5",
-         "name" : "Jog Acceleration Time(Sec)"
+         "name" : "Jog Acceleration Time",
+         "unit" : "Seconds"
       },
       "20" : {
          "default" : "0.5",
-         "name" : "Jog Deceleration Time(Sec)"
+         "name" : "Jog Deceleration Time",
+         "unit" : "Seconds"
       },
       "name" : "The Basic Parameters Group"
    },
@@ -93,51 +104,63 @@
       },
       "01" : {
          "default" : "220.0",
-         "name" : "V/F max voltage(Vac)"
+         "name" : "V/F max voltage",
+         "unit" : "AC Volts"
       },
       "02" : {
          "default" : "50.00",
-         "name" : "Max Frequency(Hz)"
+         "name" : "Max Frequency",
+         "unit" : "Hz"
       },
       "03" : {
          "default" : "100.0",
-         "name" : "Max Frequency Voltage Ratio(%)"
+         "name" : "Max Frequency Voltage Ratio",
+         "unit" : "%"
       },
       "04" : {
          "default" : "25.00",
-         "name" : "Mid Frequency 2(Hz)"
+         "name" : "Mid Frequency 2",
+         "unit" : "Hz"
       },
       "05" : {
          "default" : "50.0",
-         "name" : "Mid Frequency Voltage Ratio 2(%)"
+         "name" : "Mid Frequency Voltage Ratio 2",
+         "unit" : "%"
       },
       "06" : {
          "default" : "10.00",
-         "name" : "Mid Frequency 1(Hz)"
+         "name" : "Mid Frequency 1",
+         "unit" : "Hz"
       },
       "07" : {
          "default" : "20.0",
-         "name" : "Mid Frequency Voltage Ratio 1(%)"
+         "name" : "Mid Frequency Voltage Ratio 1",
+         "unit" : "%"
       },
       "08" : {
          "default" : "0.50",
-         "name" : "Min Frequency(Hz)"
+         "name" : "Min Frequency",
+         "unit" : "Hz"
       },
       "09" : {
          "default" : "1.0",
-         "name" : "Min Frequency Voltage Ratio(%)"
+         "name" : "Min Frequency Voltage Ratio",
+         "unit" : "%"
       },
       "10" : {
          "default" : "0.0",
-         "name" : "Volts/Hz Curve Modification(Torque Boost)(%)"
+         "name" : "Volts/Hz Curve Modification(Torque Boost)",
+         "unit" : "%"
       },
       "11" : {
          "default" : "0.00",
-         "name" : "V/F start Frequency(Hz)"
+         "name" : "V/F start Frequency",
+         "unit" : "Hz"
       },
       "12" : {
          "default" : "0.0",
-         "name" : "No-load oscillation suppression gain(%)"
+         "name" : "No-load oscillation suppression gain",
+         "unit" : "%"
       },
       "13" : {
          "default" : "800",
@@ -145,11 +168,13 @@
       },
       "14" : {
          "default" : "0",
-         "name" : "Motor Hunting Prevention Gain(%)"
+         "name" : "Motor Hunting Prevention Gain",
+         "unit" : "%"
       },
       "15" : {
          "default" : "5.0",
-         "name" : "Motor Hunting Prevention Limit(%)"
+         "name" : "Motor Hunting Prevention Limit",
+         "unit" : "%"
       },
       "16" : {
          "default" : "0.1",
@@ -157,42 +182,51 @@
       },
       "17" : {
          "default" : "0",
-         "name" : "Auto-torque Compensation Gain(%)"
+         "name" : "Auto-torque Compensation Gain",
+         "unit" : "%"
       },
       "18" : {
          "default" : "2.00",
-         "name" : "Auto-torque Compensation Frequency(Hz)"
+         "name" : "Auto-torque Compensation Frequency",
+         "unit" : "Hz"
       },
       "name" : "V/F Pattern selection and Setup"
    },
    "02" : {
       "00" : {
          "default" : "0.5",
-         "name" : "Motor No Load Current(A)"
+         "name" : "Motor No Load Current",
+         "unit" : "Amps"
       },
       "01" : {
          "default" : "1.0",
-         "name" : "Motor Rated Current(OL1)(A)"
+         "name" : "Motor Rated Current(OL1)",
+         "unit" : "Amps"
       },
       "02" : {
          "default" : "0.0",
-         "name" : "V/F Slip Compensation(%)"
+         "name" : "V/F Slip Compensation",
+         "unit" : "%"
       },
       "03" : {
          "default" : "1680",
-         "name" : "Motor Rated Speed(Rpm)"
+         "name" : "Motor Rated Speed",
+         "unit" : "RPM"
       },
       "04" : {
          "default" : "220.0",
-         "name" : "Motor rated voltage(Vac)"
+         "name" : "Motor rated voltage",
+         "unit" : "AC Volts"
       },
       "05" : {
          "default" : "1.5",
-         "name" : "Motor Rated Power(kW)"
+         "name" : "Motor Rated Power",
+         "unit" : "kW"
       },
       "06" : {
          "default" : "50.0",
-         "name" : "Motor Rated Frequency(Hz)"
+         "name" : "Motor Rated Frequency",
+         "unit" : "Hz"
       },
       "07" : {
          "default" : "0",
@@ -208,23 +242,28 @@
       },
       "13" : {
          "default" : "50",
-         "name" : "SLV Slip Compensation Gain(%)"
+         "name" : "SLV Slip Compensation Gain",
+         "unit" : "%"
       },
       "14" : {
          "default" : "100",
-         "name" : "SLV Torque Compensation Gain(%)"
+         "name" : "SLV Torque Compensation Gain",
+         "unit" : "%"
       },
       "15" : {
          "default" : "50",
-         "name" : "Low Frequency Torque Gain(%)"
+         "name" : "Low Frequency Torque Gain",
+         "unit" : "%"
       },
       "16" : {
          "default" : "100",
-         "name" : "SLV Without Load Slip Compensation Gain(%)"
+         "name" : "SLV Without Load Slip Compensation Gain",
+         "unit" : "%"
       },
       "17" : {
          "default" : "150",
-         "name" : "SLV With Load Slip Compensation Gain(%)"
+         "name" : "SLV With Load Slip Compensation Gain",
+         "unit" : "%"
       },
       "18" : {
          "default" : "100",
@@ -259,7 +298,8 @@
       },
       "06" : {
          "default" : "0.00",
-         "name" : "Up/Down Frequency band(Hz)"
+         "name" : "Up/Down Frequency band",
+         "unit" : "Hz"
       },
       "07" : {
          "default" : "0",
@@ -279,27 +319,33 @@
       },
       "13" : {
          "default" : "0.00",
-         "name" : "Output frequency detection level(Hz)"
+         "name" : "Output frequency detection level",
+         "unit" : "Hz"
       },
       "14" : {
          "default" : "2.00",
-         "name" : "Frequency Detection band(Hz)"
+         "name" : "Frequency Detection band",
+         "unit" : "Hz"
       },
       "15" : {
          "default" : "0.1",
-         "name" : "Output Current Detection Level(A)"
+         "name" : "Output Current Detection Level",
+         "unit" : "Amps"
       },
       "16" : {
          "default" : "0.1",
-         "name" : "Output Current Detection Period(Sec)"
+         "name" : "Output Current Detection Period",
+         "unit" : "Seconds"
       },
       "17" : {
          "default" : "0.00",
-         "name" : "External Brake Release Level(Hz)"
+         "name" : "External Brake Release Level",
+         "unit" : "Hz"
       },
       "18" : {
          "default" : "0.00",
-         "name" : "External Brake Engage Level(Hz)"
+         "name" : "External Brake Engage Level",
+         "unit" : "Hz"
       },
       "19" : {
          "default" : "0",
@@ -307,11 +353,13 @@
       },
       "20" : {
          "default" : "380.0",
-         "name" : "Braking Transistor On Level(Vdc)"
+         "name" : "Braking Transistor On Level",
+         "unit" : "DC Volts"
       },
       "21" : {
          "default" : "340.0",
-         "name" : "Brake Transistor Off Level(Vdc)"
+         "name" : "Brake Transistor Off Level",
+         "unit" : "DC Volts"
       },
       "name" : "Multi function Digital Inputs/Outputs"
    },
@@ -326,11 +374,13 @@
       },
       "02" : {
          "default" : "100",
-         "name" : "AVI Gain(%)"
+         "name" : "AVI Gain",
+         "unit" : "%"
       },
       "03" : {
          "default" : "0",
-         "name" : "AVI Bias(%)"
+         "name" : "AVI Bias",
+         "unit" : "%"
       },
       "04" : {
          "default" : "0",
@@ -346,11 +396,13 @@
       },
       "07" : {
          "default" : "100",
-         "name" : "ACI Gain(%)"
+         "name" : "ACI Gain",
+         "unit" : "%"
       },
       "08" : {
          "default" : "0",
-         "name" : "ACI Bias(%)"
+         "name" : "ACI Bias",
+         "unit" : "%"
       },
       "09" : {
          "default" : "0",
@@ -366,11 +418,13 @@
       },
       "12" : {
          "default" : "100",
-         "name" : "Analog Output AO Gain(%)"
+         "name" : "Analog Output AO Gain",
+         "unit" : "%"
       },
       "13" : {
          "default" : "0",
-         "name" : "Analog Output AO Bias(%)"
+         "name" : "Analog Output AO Bias",
+         "unit" : "%"
       },
       "14" : {
          "default" : "0",
@@ -382,11 +436,13 @@
       },
       "16" : {
          "default" : "100",
-         "name" : "Potentiometer Gain on Keypad(%)"
+         "name" : "Potentiometer Gain on Keypad",
+         "unit" : "%"
       },
       "17" : {
          "default" : "0",
-         "name" : "Potentiometer Bias on Keypad(%)"
+         "name" : "Potentiometer Bias on Keypad",
+         "unit" : "%"
       },
       "18" : {
          "default" : "0",
@@ -405,99 +461,123 @@
       },
       "01" : {
          "default" : "5.00",
-         "name" : "Preset Speed 0(Keypad Freq)(Hz)"
+         "name" : "Preset Speed 0(Keypad Freq)",
+         "unit" : "Hz"
       },
       "02" : {
          "default" : "5.00",
-         "name" : "Preset Speed 1(Hz)"
+         "name" : "Preset Speed 1",
+         "unit" : "Hz"
       },
       "03" : {
          "default" : "10.00",
-         "name" : "Preset Speed 2(Hz)"
+         "name" : "Preset Speed 2",
+         "unit" : "Hz"
       },
       "04" : {
          "default" : "20.00",
-         "name" : "Preset Speed 3(Hz)"
+         "name" : "Preset Speed 3",
+         "unit" : "Hz"
       },
       "05" : {
          "default" : "30.00",
-         "name" : "Preset Speed 4(Hz)"
+         "name" : "Preset Speed 4",
+         "unit" : "Hz"
       },
       "06" : {
          "default" : "40.00",
-         "name" : "Preset Speed 5(Hz)"
+         "name" : "Preset Speed 5",
+         "unit" : "Hz"
       },
       "07" : {
          "default" : "50.00",
-         "name" : "Preset Speed 6(Hz)"
+         "name" : "Preset Speed 6",
+         "unit" : "Hz"
       },
       "08" : {
          "default" : "50.00",
-         "name" : "Preset Speed 7(Hz)"
+         "name" : "Preset Speed 7",
+         "unit" : "Hz"
       },
       "17" : {
          "default" : "10.0",
-         "name" : "Preset Speed 0-Acctime(Sec)"
+         "name" : "Preset Speed 0-Acctime",
+         "unit" : "Seconds"
       },
       "18" : {
          "default" : "10.0",
-         "name" : "Preset Speed 0-Dectime(Sec)"
+         "name" : "Preset Speed 0-Dectime",
+         "unit" : "Seconds"
       },
       "19" : {
          "default" : "10.0",
-         "name" : "Preset Speed 1-Acctime(Sec)"
+         "name" : "Preset Speed 1-Acctime",
+         "unit" : "Seconds"
       },
       "20" : {
          "default" : "10.0",
-         "name" : "Preset Speed 1-Dectime(Sec)"
+         "name" : "Preset Speed 1-Dectime",
+         "unit" : "Seconds"
       },
       "21" : {
          "default" : "10.0",
-         "name" : "Preset Speed 2-Acctime(Sec)"
+         "name" : "Preset Speed 2-Acctime",
+         "unit" : "Seconds"
       },
       "22" : {
          "default" : "10.0",
-         "name" : "Preset Speed 2-Dectime(Sec)"
+         "name" : "Preset Speed 2-Dectime",
+         "unit" : "Seconds"
       },
       "23" : {
          "default" : "10.0",
-         "name" : "Preset Speed 3-Acctime(Sec)"
+         "name" : "Preset Speed 3-Acctime",
+         "unit" : "Seconds"
       },
       "24" : {
          "default" : "10.0",
-         "name" : "Preset Speed 3-Dectime(Sec)"
+         "name" : "Preset Speed 3-Dectime",
+         "unit" : "Seconds"
       },
       "25" : {
          "default" : "10.0",
-         "name" : "Preset Speed 4-Acctime(Sec)"
+         "name" : "Preset Speed 4-Acctime",
+         "unit" : "Seconds"
       },
       "26" : {
          "default" : "10.0",
-         "name" : "Preset Speed 4-Dectime(Sec)"
+         "name" : "Preset Speed 4-Dectime",
+         "unit" : "Seconds"
       },
       "27" : {
          "default" : "10.0",
-         "name" : "Preset Speed 5-Acctime(Sec)"
+         "name" : "Preset Speed 5-Acctime",
+         "unit" : "Seconds"
       },
       "28" : {
          "default" : "10.0",
-         "name" : "Preset Speed 5-Dectime(Sec)"
+         "name" : "Preset Speed 5-Dectime",
+         "unit" : "Seconds"
       },
       "29" : {
          "default" : "10.0",
-         "name" : "Preset Speed 6-Acctime(Sec)"
+         "name" : "Preset Speed 6-Acctime",
+         "unit" : "Seconds"
       },
       "30" : {
          "default" : "10.0",
-         "name" : "Preset Speed 6-Dectime(Sec)"
+         "name" : "Preset Speed 6-Dectime",
+         "unit" : "Seconds"
       },
       "31" : {
          "default" : "10.0",
-         "name" : "Preset Speed 7-Acctime(Sec)"
+         "name" : "Preset Speed 7-Acctime",
+         "unit" : "Seconds"
       },
       "32" : {
          "default" : "10.0",
-         "name" : "Preset Speed 7-Dectime(Sec)"
+         "name" : "Preset Speed 7-Dectime",
+         "unit" : "Seconds"
       },
       "name" : "Preset Frequency Selections"
    },
@@ -508,63 +588,78 @@
       },
       "01" : {
          "default" : "0.00",
-         "name" : "Auto_Run Mode Frequency Command 1(Hz)"
+         "name" : "Auto_Run Mode Frequency Command 1",
+         "unit" : "Hz"
       },
       "02" : {
          "default" : "0.00",
-         "name" : "Auto_Run Mode Frequency Command 2(Hz)"
+         "name" : "Auto_Run Mode Frequency Command 2",
+         "unit" : "Hz"
       },
       "03" : {
          "default" : "0.00",
-         "name" : "Auto_Run Mode Frequency Command 3(Hz)"
+         "name" : "Auto_Run Mode Frequency Command 3",
+         "unit" : "Hz"
       },
       "04" : {
          "default" : "0.00",
-         "name" : "Auto_Run Mode Frequency Command 4(Hz)"
+         "name" : "Auto_Run Mode Frequency Command 4",
+         "unit" : "Hz"
       },
       "05" : {
          "default" : "0.00",
-         "name" : "Auto_Run Mode Frequency Command 5(Hz)"
+         "name" : "Auto_Run Mode Frequency Command 5",
+         "unit" : "Hz"
       },
       "06" : {
          "default" : "0.00",
-         "name" : "Auto_Run Mode Frequency Command 6(Hz)"
+         "name" : "Auto_Run Mode Frequency Command 6",
+         "unit" : "Hz"
       },
       "07" : {
          "default" : "0.00",
-         "name" : "Auto_Run Mode Frequency Command 7(Hz)"
+         "name" : "Auto_Run Mode Frequency Command 7",
+         "unit" : "Hz"
       },
       "16" : {
          "default" : "0.0",
-         "name" : "Auto_Run Mode Running Time Setting 0(Sec)"
+         "name" : "Auto_Run Mode Running Time Setting 0",
+         "unit" : "Seconds"
       },
       "17" : {
          "default" : "0.0",
-         "name" : "Auto_Run Mode Running Time Setting 1(Sec)"
+         "name" : "Auto_Run Mode Running Time Setting 1",
+         "unit" : "Seconds"
       },
       "18" : {
          "default" : "0.0",
-         "name" : "Auto_Run Mode Running Time Setting 2(Sec)"
+         "name" : "Auto_Run Mode Running Time Setting 2",
+         "unit" : "Seconds"
       },
       "19" : {
          "default" : "0.0",
-         "name" : "Auto_Run Mode Running Time Setting 3(Sec)"
+         "name" : "Auto_Run Mode Running Time Setting 3",
+         "unit" : "Seconds"
       },
       "20" : {
          "default" : "0.0",
-         "name" : "Auto_Run Mode Running Time Setting 4(Sec)"
+         "name" : "Auto_Run Mode Running Time Setting 4",
+         "unit" : "Seconds"
       },
       "21" : {
          "default" : "0.0",
-         "name" : "Auto_Run Mode Running Time Setting 5(Sec)"
+         "name" : "Auto_Run Mode Running Time Setting 5",
+         "unit" : "Seconds"
       },
       "22" : {
          "default" : "0.0",
-         "name" : "Auto_Run Mode Running Time Setting 6(Sec)"
+         "name" : "Auto_Run Mode Running Time Setting 6",
+         "unit" : "Seconds"
       },
       "23" : {
          "default" : "0.0",
-         "name" : "Auto_Run Mode Running Time Setting 7(Sec)"
+         "name" : "Auto_Run Mode Running Time Setting 7",
+         "unit" : "Seconds"
       },
       "32" : {
          "default" : "0",
@@ -607,7 +702,8 @@
       },
       "01" : {
          "default" : "0.0",
-         "name" : "Auto Restart Delay Time(S)"
+         "name" : "Auto Restart Delay Time",
+         "unit" : "Seconds"
       },
       "02" : {
          "default" : "0",
@@ -623,19 +719,23 @@
       },
       "05" : {
          "default" : "1.0",
-         "name" : "Delay-ON Timer(Sec)"
+         "name" : "Delay-ON Timer",
+         "unit" : "Seconds"
       },
       "06" : {
          "default" : "1.50",
-         "name" : "DC Injection Brake Start Frequency In Stop mode(Hz)"
+         "name" : "DC Injection Brake Start Frequency In Stop mode",
+         "unit" : "Hz"
       },
       "07" : {
          "default" : "5",
-         "name" : "DC Injection Brake Level In stop mode(%)"
+         "name" : "DC Injection Brake Level In stop mode",
+         "unit" : "%"
       },
       "08" : {
          "default" : "0.5",
-         "name" : "DC Injection Brake Time In stop mode(S)"
+         "name" : "DC Injection Brake Time In stop mode",
+         "unit" : "Seconds"
       },
       "09" : {
          "default" : "0",
@@ -643,11 +743,13 @@
       },
       "10" : {
          "default" : "0",
-         "name" : "DC Injection Brake Level In start mode(%)"
+         "name" : "DC Injection Brake Level In start mode",
+         "unit" : "%"
       },
       "11" : {
          "default" : "0.0",
-         "name" : "DC Injection Brake Time In start mode(S)"
+         "name" : "DC Injection Brake Time In start mode",
+         "unit" : "Seconds"
       },
       "name" : "Start/Stop command setup"
    },
@@ -658,19 +760,23 @@
       },
       "01" : {
          "default" : "200",
-         "name" : "Trip Prevention Level During Acceleration(%)"
+         "name" : "Trip Prevention Level During Acceleration",
+         "unit" : "%"
       },
       "02" : {
          "default" : "200",
-         "name" : "Trip Prevention Level During Deceleration(%)"
+         "name" : "Trip Prevention Level During Deceleration",
+         "unit" : "%"
       },
       "03" : {
          "default" : "200",
-         "name" : "Trip Prevention Level In Run Mode(%)"
+         "name" : "Trip Prevention Level In Run Mode",
+         "unit" : "%"
       },
       "04" : {
          "default" : "380.0",
-         "name" : "Over Voltage Prevention Level in Run Mode(Vdc)"
+         "name" : "Over Voltage Prevention Level in Run Mode",
+         "unit" : "DC Volts"
       },
       "05" : {
          "default" : "00001",
@@ -698,35 +804,43 @@
       },
       "11" : {
          "default" : "0.20",
-         "name" : "PTC Signal Smoothing Time(Sec)"
+         "name" : "PTC Signal Smoothing Time",
+         "unit" : "Seconds"
       },
       "12" : {
          "default" : "60",
-         "name" : "PTC Detection Time Delay(Sec)"
+         "name" : "PTC Detection Time Delay",
+         "unit" : "Seconds"
       },
       "13" : {
          "default" : "0.7",
-         "name" : "PTC Protection Level(V)"
+         "name" : "PTC Protection Level",
+         "unit" : "Volts"
       },
       "14" : {
          "default" : "0.3",
-         "name" : "PTC Detection Level Reset(V)"
+         "name" : "PTC Detection Level Reset",
+         "unit" : "Volts"
       },
       "15" : {
          "default" : "0.5",
-         "name" : "PTC Warning Level(V)"
+         "name" : "PTC Warning Level",
+         "unit" : "Volts"
       },
       "16" : {
          "default" : "50.0",
-         "name" : "Fan Control Temperature Level(degree C)"
+         "name" : "Fan Control Temperature Level",
+         "unit" : "C"
       },
       "17" : {
          "default" : "0.0",
-         "name" : "Over Current Protection Level(A)"
+         "name" : "Over Current Protection Level",
+         "unit" : "Amps"
       },
       "18" : {
          "default" : "1.0",
-         "name" : "Over Current Protection Time(S)"
+         "name" : "Over Current Protection Time",
+         "unit" : "Seconds"
       },
       "19" : {
          "default" : "0",
@@ -761,7 +875,8 @@
       },
       "06" : {
          "default" : "0.0",
-         "name" : "Communication Time-out Detection Time(Sec)"
+         "name" : "Communication Time-out Detection Time",
+         "unit" : "Seconds"
       },
       "07" : {
          "default" : "0",
@@ -792,7 +907,8 @@
       },
       "02" : {
          "default" : "50.0",
-         "name" : "PID Target(keypad input)(%)"
+         "name" : "PID Target(keypad input)",
+         "unit" : "%"
       },
       "03" : {
          "default" : "0",
@@ -800,19 +916,23 @@
       },
       "04" : {
          "default" : "1.00",
-         "name" : "Feedback Gain Coefficient(%)"
+         "name" : "Feedback Gain Coefficient",
+         "unit" : "%"
       },
       "05" : {
          "default" : "1.0",
-         "name" : "Proportional Gain(%)"
+         "name" : "Proportional Gain",
+         "unit" : "%"
       },
       "06" : {
          "default" : "10.0",
-         "name" : "Integral Time(Sec)"
+         "name" : "Integral Time",
+         "unit" : "Seconds"
       },
       "07" : {
          "default" : "0.00",
-         "name" : "Derivative Time(Sec)"
+         "name" : "Derivative Time",
+         "unit" : "Seconds"
       },
       "08" : {
          "default" : "0",
@@ -820,11 +940,13 @@
       },
       "09" : {
          "default" : "0",
-         "name" : "PID Offset Adjust(%)"
+         "name" : "PID Offset Adjust",
+         "unit" : "%"
       },
       "10" : {
          "default" : "0.0",
-         "name" : "PID Output Lag Filter Time(S)"
+         "name" : "PID Output Lag Filter Time",
+         "unit" : "Seconds"
       },
       "11" : {
          "default" : "0",
@@ -832,15 +954,18 @@
       },
       "12" : {
          "default" : "0",
-         "name" : "Feedback Loss Detection Level(%)"
+         "name" : "Feedback Loss Detection Level",
+         "unit" : "%"
       },
       "13" : {
          "default" : "1.0",
-         "name" : "Feedback Loss Detection Delay Time(S)"
+         "name" : "Feedback Loss Detection Delay Time",
+         "unit" : "Seconds"
       },
       "14" : {
          "default" : "100",
-         "name" : "Integration Limit Value(%)"
+         "name" : "Integration Limit Value",
+         "unit" : "%"
       },
       "15" : {
          "default" : "0",
@@ -852,19 +977,23 @@
       },
       "17" : {
          "default" : "0.00",
-         "name" : "PID Sleep Frequency Level(Hz)"
+         "name" : "PID Sleep Frequency Level",
+         "unit" : "Hz"
       },
       "18" : {
          "default" : "0.0",
-         "name" : "PID Sleep Function Delay Time(Sec)"
+         "name" : "PID Sleep Function Delay Time",
+         "unit" : "Seconds"
       },
       "19" : {
          "default" : "0.00",
-         "name" : "PID Wake Up Frequency Level(Hz)"
+         "name" : "PID Wake Up Frequency Level",
+         "unit" : "Hz"
       },
       "20" : {
          "default" : "0.0",
-         "name" : "PID Wake Up Function Delay Time(Sec)"
+         "name" : "PID Wake Up Function Delay Time",
+         "unit" : "Seconds"
       },
       "21" : {
          "default" : "100",
@@ -883,7 +1012,8 @@
       },
       "01" : {
          "default" : "5",
-         "name" : "Carrier Frequency(KHz)"
+         "name" : "Carrier Frequency",
+         "unit" : "kHz"
       },
       "02" : {
          "default" : "1",
@@ -895,35 +1025,43 @@
       },
       "04" : {
          "default" : "0.0",
-         "name" : "S-Curve Acc 1(Sec)"
+         "name" : "S-Curve Acc 1",
+         "unit" : "Seconds"
       },
       "05" : {
          "default" : "0.0",
-         "name" : "S-Curve Acc 2(Sec)"
+         "name" : "S-Curve Acc 2",
+         "unit" : "Seconds"
       },
       "06" : {
          "default" : "0.0",
-         "name" : "S-Curve Dec 3(Sec)"
+         "name" : "S-Curve Dec 3",
+         "unit" : "Seconds"
       },
       "07" : {
          "default" : "0.0",
-         "name" : "S-Curve Dec 4(Sec)"
+         "name" : "S-Curve Dec 4",
+         "unit" : "Seconds"
       },
       "08" : {
          "default" : "0.00",
-         "name" : "Skip Frequency 1(Hz)"
+         "name" : "Skip Frequency 1",
+         "unit" : "Hz"
       },
       "09" : {
          "default" : "0.00",
-         "name" : "Skip Frequency 2(Hz)"
+         "name" : "Skip Frequency 2",
+         "unit" : "Hz"
       },
       "10" : {
          "default" : "0.00",
-         "name" : "Skip Frequency 3(Hz)"
+         "name" : "Skip Frequency 3",
+         "unit" : "Hz"
       },
       "11" : {
          "default" : "0.00",
-         "name" : "Skip Frequency Bandwidth(Hz)"
+         "name" : "Skip Frequency Bandwidth",
+         "unit" : "Hz"
       },
       "13" : {
          "default" : "0",
@@ -931,19 +1069,23 @@
       },
       "14" : {
          "default" : "380.0",
-         "name" : "Regeneration Prevention Voltage Level(V)"
+         "name" : "Regeneration Prevention Voltage Level",
+         "unit" : "Volts"
       },
       "15" : {
          "default" : "3.00",
-         "name" : "Regeneration Prevention Frequency Limit(Hz)"
+         "name" : "Regeneration Prevention Frequency Limit",
+         "unit" : "Hz"
       },
       "16" : {
          "default" : "100",
-         "name" : "Regeneration Prevention Voltage Gain(%)"
+         "name" : "Regeneration Prevention Voltage Gain",
+         "unit" : "%"
       },
       "17" : {
          "default" : "100",
-         "name" : "Regeneration Prevention Frequency Gain(%)"
+         "name" : "Regeneration Prevention Frequency Gain",
+         "unit" : "%"
       },
       "18" : {
          "default" : "10000",
@@ -978,7 +1120,8 @@
       },
       "03" : {
          "default" : "1500",
-         "name" : "Custom Units(Line Speed) Value(RPM)"
+         "name" : "Custom Units(Line Speed) Value",
+         "unit" : "RPM"
       },
       "04" : {
          "default" : "0",
@@ -1008,11 +1151,13 @@
       },
       "03" : {
          "default" : "0",
-         "name" : "Accumulated Operation Time 1(hour)"
+         "name" : "Accumulated Operation Time 1",
+         "unit" : "Hour"
       },
       "04" : {
          "default" : "0",
-         "name" : "Accumulated Operation Time 2(day)"
+         "name" : "Accumulated Operation Time 2",
+         "unit" : "Day"
       },
       "05" : {
          "default" : "0",

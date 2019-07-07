@@ -49,13 +49,14 @@ namespace L510_manager {
         }
 */
 		private void setup_treeview (Gtk.TreeView view) {
-		    var store = new Gtk.TreeStore (4, typeof (string), typeof (string), typeof (string), typeof (string));
+		    var store = new Gtk.TreeStore (5, typeof (string), typeof (string), typeof (string), typeof (string), typeof (string));
 		    view.set_model (store);
 
             view.insert_column_with_attributes(-1, "Group", new Gtk.CellRendererText (), "text", 0, null);
 		    view.insert_column_with_attributes(-1, "Number", new Gtk.CellRendererText (), "text", 1, null);
 		    view.insert_column_with_attributes(-1, "Parameter", new Gtk.CellRendererText (), "text", 2, null);
 		    view.insert_column_with_attributes(-1, "Default", new Gtk.CellRendererText (), "text", 3, null);
+		    view.insert_column_with_attributes(-1, "Unit", new Gtk.CellRendererText (), "text", 4, null);
 
 //            Gtk.TreeIter root;
             Gtk.TreeIter group_iter;
@@ -85,6 +86,7 @@ namespace L510_manager {
                                 1, parameter_number,
                                 2, parameter.get_string_member ("name"),
                                 3, parameter.get_string_member ("default"),
+                                4, parameter.get_string_member ("unit"),
                                 -1);
 //                            store.append (out parameter_iter, group_iter);
 //                            store.set (parameter_iter, 0, group_number + "-" + parameter_number + ": " + parameter.get_string_member ("name"), -1);
