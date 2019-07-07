@@ -21,8 +21,8 @@ namespace L510_manager {
 	public class Window : Gtk.ApplicationWindow {
         [GtkChild]
         Gtk.TreeView all_parameters_treeview;
-        [GtkChild]
-        Gtk.Label all_parameters_label;
+//        [GtkChild]
+//        Gtk.Label all_parameters_label;
 
 		public Window (Gtk.Application app) {
 			Object (application: app);
@@ -30,26 +30,32 @@ namespace L510_manager {
             setup_treeview (all_parameters_treeview);
             add (all_parameters_treeview);
 
-            var selection = all_parameters_treeview.get_selection ();
-            selection.changed.connect (this.on_selection_changed);
-		}
 
+// Save this for later -- we'll need it for Parameter Sets
+
+//            var selection = all_parameters_treeview.get_selection ();
+//            selection.changed.connect (this.on_selection_changed);
+		}
+/*
         private void on_selection_changed (Gtk.TreeSelection selection) {
             Gtk.TreeModel model;
             Gtk.TreeIter iter;
-            string parameter;
+            string parameter_name;
 
             if (selection.get_selected (out model, out iter)) {
-                model.get (iter, 0, out parameter);
-                all_parameters_label.set_text (parameter);
+                model.get (iter, 2, out parameter_name);
+                all_parameters_label.set_text (parameter_name);
             }
         }
-
+*/
 		private void setup_treeview (Gtk.TreeView view) {
-		    var store = new Gtk.TreeStore (1, typeof (string));
+		    var store = new Gtk.TreeStore (4, typeof (string), typeof (string), typeof (string), typeof (string));
 		    view.set_model (store);
 
-		    view.insert_column_with_attributes(-1, "Parameter", new Gtk.CellRendererText (), "text", 0, null);
+            view.insert_column_with_attributes(-1, "Group", new Gtk.CellRendererText (), "text", 0, null);
+		    view.insert_column_with_attributes(-1, "Number", new Gtk.CellRendererText (), "text", 1, null);
+		    view.insert_column_with_attributes(-1, "Parameter", new Gtk.CellRendererText (), "text", 2, null);
+		    view.insert_column_with_attributes(-1, "Default", new Gtk.CellRendererText (), "text", 3, null);
 
 //            Gtk.TreeIter root;
             Gtk.TreeIter group_iter;
@@ -65,13 +71,23 @@ namespace L510_manager {
                 var parameters = parser.get_root ().get_object ();
                 foreach (string group_number in parameters.get_members ()) {
                     var group = parameters.get_member (group_number).get_object ();
-                    store.append (out group_iter, null);
-                    store.set (group_iter, 0, group_number + "-XX: " + group.get_string_member ("name"), -1);
+                    store.insert_with_values (out group_iter, null, -1,
+                        0, group_number,
+                        2, group.get_string_member ("name"),
+                        -1);
+//                    store.append (out group_iter, null);
+//                    store.set (group_iter, 0, group_number, 1, "-XX: " + group.get_string_member ("name"), -1);
                     foreach (string parameter_number in group.get_members ()) {
                         var parameter = group.get_member (parameter_number).get_object ();
                         if (parameter_number != "name") {
-                            store.append (out parameter_iter, group_iter);
-                            store.set (parameter_iter, 0, group_number + "-" + parameter_number + ": " + parameter.get_string_member ("name"), -1);
+                            store.insert_with_values (out parameter_iter, group_iter, -1,
+                                0, group_number,
+                                1, parameter_number,
+                                2, parameter.get_string_member ("name"),
+                                3, parameter.get_string_member ("default"),
+                                -1);
+//                            store.append (out parameter_iter, group_iter);
+//                            store.set (parameter_iter, 0, group_number + "-" + parameter_number + ": " + parameter.get_string_member ("name"), -1);
                         }
                     }
                 }
