@@ -3,5 +3,6 @@
   <gresource prefix="/com/wolfteck/L510Manager">
     <file>window.ui</file>
     <file>json/parameters.json</file>
+    <file>json/parameter_sets.json</file>
   </gresource>
 </gresources>
