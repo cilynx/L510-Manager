@@ -5,6 +5,7 @@
   <template class="L510_managerWindow" parent="GtkApplicationWindow">
     <property name="can_focus">False</property>
     <property name="default_height">500</property>
+    <property name="show_menubar">False</property>
     <child type="titlebar">
       <object class="GtkHeaderBar" id="header_bar">
         <property name="visible">True</property>
@@ -12,6 +13,21 @@
         <property name="title">L510 Manager</property>
         <property name="has_subtitle">False</property>
         <property name="show_close_button">True</property>
+        <child>
+          <object class="GtkMenuButton" id="primary_menu_button">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="receives_default">False</property>
+            <property name="direction">none</property>
+            <property name="menu-model">hamburger-menu</property>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="pack_type">end</property>
+          </packing>
+        </child>
       </object>
     </child>
     <child>
@@ -119,4 +135,24 @@
       </object>
     </child>
   </template>
+  <menu id="hamburger-menu">
+    <section>
+      <attribute name="display-hint">horizontal-buttons</attribute>
+      <item>
+        <attribute name="label">New</attribute>
+        <attribute name="action">app.new</attribute>
+        <attribute name="verb-icon">document-new</attribute>
+      </item>
+      <item>
+        <attribute name="label">Open</attribute>
+        <attribute name="action">app.open</attribute>
+        <attribute name="verb-icon">document-open</attribute>
+      </item>
+      <item>
+        <attribute name="label">Save</attribute>
+        <attribute name="action">app.save</attribute>
+        <attribute name="verb-icon">document-save</attribute>
+      </item>
+    </section>
+  </menu>
 </interface>
