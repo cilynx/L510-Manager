@@ -41,6 +41,26 @@ namespace L510_manager {
             parameter_set_selection.changed.connect (this.on_perameter_sets_selection_changed);
 
             setup_parameter_columns (parameter_set_treeview);
+
+            var action = new SimpleAction ("new", null);
+            action.activate.connect (() => {
+        	    print ("New\n");
+            });
+            this.add_action (action);
+
+            action = new SimpleAction ("open", null);
+            action.activate.connect(() => {
+                var path = Dialogs.open_file(this);
+                print ("Open " + path + "\n");
+            });
+            this.add_action (action);
+
+            action = new SimpleAction ("save", null);
+            action.activate.connect(() => {
+                var path = Dialogs.save_file(this);
+                print ("Save " + path + "\n");
+            });
+            this.add_action (action);
 		}
 
         private void on_perameter_sets_selection_changed (Gtk.TreeSelection selection) {

@@ -140,17 +140,17 @@
       <attribute name="display-hint">horizontal-buttons</attribute>
       <item>
         <attribute name="label">New</attribute>
-        <attribute name="action">app.new</attribute>
+        <attribute name="action">win.new</attribute>
         <attribute name="verb-icon">document-new</attribute>
       </item>
       <item>
         <attribute name="label">Open</attribute>
-        <attribute name="action">app.open</attribute>
+        <attribute name="action">win.open</attribute>
         <attribute name="verb-icon">document-open</attribute>
       </item>
       <item>
         <attribute name="label">Save</attribute>
-        <attribute name="action">app.save</attribute>
+        <attribute name="action">win.save</attribute>
         <attribute name="verb-icon">document-save</attribute>
       </item>
     </section>
