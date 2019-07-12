@@ -136,8 +136,10 @@
     </child>
   </template>
   <menu id="hamburger-menu">
+    <!-- https://github.com/linuxmint/gtk/blob/master/tests/popover.ui -->
     <section>
       <attribute name="display-hint">horizontal-buttons</attribute>
+      <attribute name="label">Profile</attribute>
       <item>
         <attribute name="label">New</attribute>
         <attribute name="action">win.new</attribute>
@@ -152,6 +154,27 @@
         <attribute name="label">Save</attribute>
         <attribute name="action">win.save</attribute>
         <attribute name="verb-icon">document-save</attribute>
+      </item>
+    </section>
+    <section>
+      <attribute name="label">Serial</attribute>
+      <item>
+        <attribute name="label">Device</attribute>
+      </item>
+      <item>
+        <attribute name="label">Baud</attribute>
+      </item>
+      <item>
+        <attribute name="label">Parity</attribute>
+      </item>
+      <item>
+        <attribute name="label">Bits</attribute>
+      </item>
+      <item>
+        <attribute name="label">Stopbits</attribute>
+      </item>
+      <item>
+        <attribute name="label">Flow Control</attribute>
       </item>
     </section>
   </menu>
