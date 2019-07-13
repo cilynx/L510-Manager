@@ -42,43 +42,64 @@ namespace L510_manager {
 
             setup_parameter_columns (parameter_set_treeview);
 
-            var action = new SimpleAction ("new", null);
-            action.activate.connect (() => {
+            var new_profile_action = new SimpleAction ("new_profile", null);
+            new_profile_action.activate.connect (() => {
         	    print ("New\n");
             });
-            this.add_action (action);
+            this.add_action (new_profile_action);
 
-            action = new SimpleAction ("open", null);
-            action.activate.connect(() => {
+            var open_profile_action = new SimpleAction ("open_profile", null);
+            open_profile_action.activate.connect(() => {
                 var path = Dialogs.open_file(this);
                 print ("Open " + path + "\n");
             });
-            this.add_action (action);
+            this.add_action (open_profile_action);
 
-            action = new SimpleAction ("save", null);
-            action.activate.connect(() => {
+            var save_profile_action = new SimpleAction ("save_profile", null);
+            save_profile_action.activate.connect(() => {
                 var path = Dialogs.save_file(this);
                 print ("Save " + path + "\n");
             });
-            this.add_action (action);
+            this.add_action (save_profile_action);
 
-            action = new SimpleAction.stateful ("connect", null, new Variant.boolean (false));
-		    action.activate.connect (() => {
-                debug ("Action %s activated\n", action.get_name ());
-                app.hold ();
-                Variant state = action.get_state ();
+            var connect_serial_action = new SimpleAction.stateful ("connect_serial", null, new Variant.boolean (false));
+		    connect_serial_action.activate.connect (() => {
+                debug ("Action %s activated\n", connect_serial_action.get_name ());
+                Variant state = connect_serial_action.get_state ();
     			bool b = state.get_boolean ();
-    			action.set_state (new Variant.boolean (!b));
+    			connect_serial_action.set_state (new Variant.boolean (!b));
     			debug (@"State change $b -> $(!b)\n");
-                app.release ();
             });
-            this.add_action (action);
+            this.add_action (connect_serial_action);
 
-            action = new SimpleAction.stateful ("baud", VariantType.STRING, new Variant.string ("1200"));
-            action.activate.connect((to) => {
-                debug ("state change to $(to.get_string())\n");
+            var baud_action = new SimpleAction.stateful ("baud", VariantType.STRING, new Variant.string ("19200"));
+            baud_action.activate.connect((target) => {
+                baud_action.set_state (target);
+                debug (@"state change to $(target.get_string())\n");
             });
-            this.add_action (action);
+            this.add_action (baud_action);
+
+            var data_bits_action = new SimpleAction.stateful ("data_bits", VariantType.STRING, new Variant.string ("8"));
+            data_bits_action.activate.connect((target) => {
+                data_bits_action.set_state (target);
+                debug (@"state change to $(target.get_string())\n");
+            });
+            this.add_action (data_bits_action);
+
+            var parity_action = new SimpleAction.stateful ("parity", VariantType.STRING, new Variant.string ("N"));
+            parity_action.activate.connect((target) => {
+                parity_action.set_state (target);
+                debug (@"state change to $(target.get_string())\n");
+            });
+            this.add_action (parity_action);
+
+            var stop_bits_action = new SimpleAction.stateful ("stop_bits", VariantType.STRING, new Variant.string ("1"));
+            stop_bits_action.activate.connect((target) => {
+                stop_bits_action.set_state (target);
+                debug (@"state change to $(target.get_string())\n");
+            });
+            this.add_action (stop_bits_action);
+
 		}
 
         private void on_perameter_sets_selection_changed (Gtk.TreeSelection selection) {
