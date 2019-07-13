@@ -61,6 +61,24 @@ namespace L510_manager {
                 print ("Save " + path + "\n");
             });
             this.add_action (action);
+
+            action = new SimpleAction.stateful ("connect", null, new Variant.boolean (false));
+		    action.activate.connect (() => {
+                debug ("Action %s activated\n", action.get_name ());
+                app.hold ();
+                Variant state = action.get_state ();
+    			bool b = state.get_boolean ();
+    			action.set_state (new Variant.boolean (!b));
+    			debug (@"State change $b -> $(!b)\n");
+                app.release ();
+            });
+            this.add_action (action);
+
+            action = new SimpleAction.stateful ("baud", VariantType.STRING, new Variant.string ("1200"));
+            action.activate.connect((to) => {
+                debug ("state change to $(to.get_string())\n");
+            });
+            this.add_action (action);
 		}
 
         private void on_perameter_sets_selection_changed (Gtk.TreeSelection selection) {
