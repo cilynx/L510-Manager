@@ -8,7 +8,8 @@ l510_manager_deps = [
   dependency('gio-2.0', version: '>= 2.50'),
   dependency('gtk+-3.0', version: '>= 3.22'),
   dependency('json-glib-1.0', version: '>=1.4'),
-  dependency('libserialport'),
+  meson.get_compiler('vala').find_library('posix'),
+  dependency('libmodbus'),
 ]
 
 gnome = import('gnome')

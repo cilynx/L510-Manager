@@ -34,7 +34,7 @@ namespace L510_manager {
         [GtkChild]
         Menu device_menu;
 */
-		private LibSerialPort.Port port;
+        private Modbus.Context modbus;
 
 		public Window (Gtk.Application app) {
 			Object (application: app);
@@ -73,43 +73,38 @@ namespace L510_manager {
                 Variant state = connect_serial_action.get_state ();
     			bool is_open = state.get_boolean ();
                 if (is_open) {
-                    debug("Closing serial port");
-                    port.close ();
+                    debug("Closing modbus connection");
+           			modbus.close ();
                 } else {
-                    debug("Opening serial port");
-                    port.open (LibSerialPort.OpenMode.READ_WRITE);
-                    port.set_baudrate (1200);
-                    port.set_rts (LibSerialPort.Rts.ON);
-                    port.set_dtr (LibSerialPort.Dtr.ON);
-                    port.set_stopbits (1);
-                    port.set_parity (LibSerialPort.Parity.NONE);
-                    port.set_bits (7);
-                    port.set_baudrate (19200);
-                    port.set_rts (LibSerialPort.Rts.ON);
-                    port.set_dtr (LibSerialPort.Dtr.ON);
-                    port.set_stopbits (2);
-                    port.set_parity (LibSerialPort.Parity.NONE);
-                    port.set_bits (8);
-                    port.set_baudrate (19200);
-                    port.set_rts (LibSerialPort.Rts.ON);
-                    port.set_dtr (LibSerialPort.Dtr.ON);
-                    port.set_stopbits (2);
-                    port.set_parity (LibSerialPort.Parity.NONE);
-                    port.set_bits (8);
+                    debug("Opening modbus connection");
+        			modbus = new Modbus.Context.rtu ("/dev/ttyUSB0", 19200, 'N', 8, 1);
+                    modbus.set_debug(true);
+                    modbus.rtu_set_rts(1);
 
+        			if (modbus.set_slave (1) == -1 ) {
+        			    error ("Failed to set rs485 slave.");
+        			}
 
-                    port.flush (LibSerialPort.Buffer.BOTH);
-                    uint8[] command = { 0x01, 0x03, 0x00, 0x02, 0x00, 0x01, 0x25, 0xCA };
-                    Timeout.add (1000, () => {
-                        var response = new uint8[7];
-                        port.set_rts (LibSerialPort.Rts.ON);
-                        Thread.usleep(1000);
-                        debug ("Successfully sent %i bytes", port.blocking_write(command, 0));
-                        Thread.usleep(1000);
-                        port.set_rts (LibSerialPort.Rts.OFF);
-                        port.blocking_read(response, 1000);
-                        debug ((string) response);
-                        return true;
+        			if (modbus.connect () == -1) {
+        			    error ("Connection failed.");
+        			}
+
+                    all_parameters_treeview.get_model ().@foreach((model, path, iter) => {
+                        string group_number = null;
+                        string parameter_number = null;
+                        model.get(iter, 0, &group_number, 1, &parameter_number, -1);
+                        if (parameter_number != null) {
+                            int group_int = int.parse (group_number);
+                            int parameter_int = int.parse (parameter_number);
+                            int register = 0x100 * group_int + parameter_int;
+                            uint16 val = 0;
+                            if (modbus.read_registers (register, 1, &val) == -1) {
+                                error ("Modbus read error.");
+                            } else {
+                                ((Gtk.TreeStore) model).set_value(iter, 5, val);
+                            }
+                        }
+                        return false;
                     });
                 }
     			connect_serial_action.set_state (new Variant.boolean (!is_open));
@@ -150,22 +145,6 @@ namespace L510_manager {
                 debug (@"state change to $(target.get_string())\n");
             });
             this.add_action (stop_bits_action);
-/*
-            var ports = LibSerialPort.Port.@enum();
-            foreach(unowned LibSerialPort.Port port in ports) {
-                device_menu.append(port.name(), port.name());
-                debug(port.name());
-            }
-*/
-            if (0 != LibSerialPort.Port.new_by_name(device_action.get_state ().get_string (), out port)) {
-                debug("The serialport %s does not exist on your system.\n", device_action.get_state ().get_string ());
-            } else {
-                port.set_baudrate(int.parse (baud_action.get_state ().get_string ()));
-                port.set_bits(int.parse (data_bits_action.get_state ().get_string ()));
-                port.set_parity(LibSerialPort.Parity.NONE);
-                port.set_stopbits(int.parse (stop_bits_action.get_state ().get_string ()));
-                debug("Provisioned %s\n", device_action.get_state ().get_string ());
-            }
 		}
 
         private void on_perameter_sets_selection_changed (Gtk.TreeSelection selection) {
