@@ -30,6 +30,11 @@ namespace L510_manager {
 
         [GtkChild]
         Gtk.Label parameter_set_label;
+/*
+        [GtkChild]
+        Menu device_menu;
+*/
+		private LibSerialPort.Port port;
 
 		public Window (Gtk.Application app) {
 			Object (application: app);
@@ -66,11 +71,57 @@ namespace L510_manager {
 		    connect_serial_action.activate.connect (() => {
                 debug ("Action %s activated\n", connect_serial_action.get_name ());
                 Variant state = connect_serial_action.get_state ();
-    			bool b = state.get_boolean ();
-    			connect_serial_action.set_state (new Variant.boolean (!b));
-    			debug (@"State change $b -> $(!b)\n");
+    			bool is_open = state.get_boolean ();
+                if (is_open) {
+                    debug("Closing serial port");
+                    port.close ();
+                } else {
+                    debug("Opening serial port");
+                    port.open (LibSerialPort.OpenMode.READ_WRITE);
+                    port.set_baudrate (1200);
+                    port.set_rts (LibSerialPort.Rts.ON);
+                    port.set_dtr (LibSerialPort.Dtr.ON);
+                    port.set_stopbits (1);
+                    port.set_parity (LibSerialPort.Parity.NONE);
+                    port.set_bits (7);
+                    port.set_baudrate (19200);
+                    port.set_rts (LibSerialPort.Rts.ON);
+                    port.set_dtr (LibSerialPort.Dtr.ON);
+                    port.set_stopbits (2);
+                    port.set_parity (LibSerialPort.Parity.NONE);
+                    port.set_bits (8);
+                    port.set_baudrate (19200);
+                    port.set_rts (LibSerialPort.Rts.ON);
+                    port.set_dtr (LibSerialPort.Dtr.ON);
+                    port.set_stopbits (2);
+                    port.set_parity (LibSerialPort.Parity.NONE);
+                    port.set_bits (8);
+
+
+                    port.flush (LibSerialPort.Buffer.BOTH);
+                    uint8[] command = { 0x01, 0x03, 0x00, 0x02, 0x00, 0x01, 0x25, 0xCA };
+                    Timeout.add (1000, () => {
+                        var response = new uint8[7];
+                        port.set_rts (LibSerialPort.Rts.ON);
+                        Thread.usleep(1000);
+                        debug ("Successfully sent %i bytes", port.blocking_write(command, 0));
+                        Thread.usleep(1000);
+                        port.set_rts (LibSerialPort.Rts.OFF);
+                        port.blocking_read(response, 1000);
+                        debug ((string) response);
+                        return true;
+                    });
+                }
+    			connect_serial_action.set_state (new Variant.boolean (!is_open));
             });
             this.add_action (connect_serial_action);
+
+            var device_action = new SimpleAction.stateful ("device", VariantType.STRING, new Variant.string ("/dev/ttyUSB0"));
+            device_action.activate.connect((target) => {
+                device_action.set_state (target);
+                debug (@"state change to $(target.get_string())\n");
+            });
+            this.add_action (device_action);
 
             var baud_action = new SimpleAction.stateful ("baud", VariantType.STRING, new Variant.string ("19200"));
             baud_action.activate.connect((target) => {
@@ -99,7 +150,22 @@ namespace L510_manager {
                 debug (@"state change to $(target.get_string())\n");
             });
             this.add_action (stop_bits_action);
-
+/*
+            var ports = LibSerialPort.Port.@enum();
+            foreach(unowned LibSerialPort.Port port in ports) {
+                device_menu.append(port.name(), port.name());
+                debug(port.name());
+            }
+*/
+            if (0 != LibSerialPort.Port.new_by_name(device_action.get_state ().get_string (), out port)) {
+                debug("The serialport %s does not exist on your system.\n", device_action.get_state ().get_string ());
+            } else {
+                port.set_baudrate(int.parse (baud_action.get_state ().get_string ()));
+                port.set_bits(int.parse (data_bits_action.get_state ().get_string ()));
+                port.set_parity(LibSerialPort.Parity.NONE);
+                port.set_stopbits(int.parse (stop_bits_action.get_state ().get_string ()));
+                debug("Provisioned %s\n", device_action.get_state ().get_string ());
+            }
 		}
 
         private void on_perameter_sets_selection_changed (Gtk.TreeSelection selection) {

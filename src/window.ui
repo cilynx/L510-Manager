@@ -162,9 +162,14 @@
         <attribute name="label">Connect</attribute>
         <attribute name="action">win.connect_serial</attribute>
       </item>
-      <item>
+      <submenu id="device_menu">
         <attribute name="label">Device</attribute>
-      </item>
+        <item>
+          <attribute name="label">/dev/ttyUSB0</attribute>
+          <attribute name="action">win.device</attribute>
+          <attribute name="target">/dev/ttyUSB0</attribute>
+        </item>
+      </submenu>
       <submenu>
         <attribute name="label">Baud</attribute>
         <item>
