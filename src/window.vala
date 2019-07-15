@@ -34,6 +34,14 @@ namespace L510_manager {
         [GtkChild]
         Menu device_menu;
 */
+        static int GROUP_COLUMN = 0;
+        static int PARAMETER_COLUMN = 1;
+        static int NAME_COLUMN = 2;
+        static int DEFAULT_COLUMN = 3;
+        static int PROFILE_COLUMN = 4;
+        static int VFD_COLUMN = 5;
+        static int UNIT_COLUMN = 6;
+
         private Modbus.Context modbus;
 
 		public Window (Gtk.Application app) {
@@ -92,7 +100,16 @@ namespace L510_manager {
                     all_parameters_treeview.get_model ().@foreach((model, path, iter) => {
                         string group_number = null;
                         string parameter_number = null;
-                        model.get(iter, 0, &group_number, 1, &parameter_number, -1);
+                        string default_value = null;
+                        double scale = 1;
+                        model.get(iter, GROUP_COLUMN, &group_number, PARAMETER_COLUMN, &parameter_number, DEFAULT_COLUMN, &default_value, -1);
+                        if (default_value != null && default_value.contains(".")) {
+                            if (default_value.length - default_value.index_of_char ('.') == 2) {
+                                scale = 0.1;
+                            } else if (default_value.length - default_value.index_of_char ('.', 0) == 3) {
+                                scale = 0.01;
+                            }
+                        }
                         if (parameter_number != null) {
                             int group_int = int.parse (group_number);
                             int parameter_int = int.parse (parameter_number);
@@ -101,7 +118,14 @@ namespace L510_manager {
                             if (modbus.read_registers (register, 1, &val) == -1) {
                                 error ("Modbus read error.");
                             } else {
-                                ((Gtk.TreeStore) model).set_value(iter, 5, val);
+                                if (scale == 1) {
+                                    ((Gtk.TreeStore) model).set_value(iter, VFD_COLUMN, val);
+                                } else {
+                                    string format = "%.2f";
+                                    if (scale == 0.1) { format = "%.1f"; }
+                                    char[] buffer = new char[double.DTOSTR_BUF_SIZE];
+                                    ((Gtk.TreeStore) model).set_value(iter, VFD_COLUMN, (val * scale).format(buffer, format));
+                                }
                             }
                         }
                         return false;
@@ -155,7 +179,15 @@ namespace L510_manager {
             if (selection.get_selected (out model, out iter)) {
                 model.get (iter, 0, out parameter_set_name);
                 parameter_set_label.set_text (parameter_set_name);
-                var store = new Gtk.TreeStore (7, typeof (string), typeof (string), typeof (string), typeof (string), typeof (string), typeof (string), typeof (string));
+                var store = new Gtk.TreeStore (7,
+                    typeof (string),
+                    typeof (string),
+                    typeof (string),
+                    typeof (string),
+                    typeof (string),
+                    typeof (string),
+                    typeof (string)
+                    );
     		    parameter_set_treeview.set_model (store);
 
     		    try {
@@ -181,12 +213,16 @@ namespace L510_manager {
         		        var parameter_number = coordinates[1];
 
                         var parameter = parameters_root.get_member (group_number).get_object ().get_member (parameter_number).get_object ();
-        		        store.insert_with_values (out iter, null, -1, 0, group_number, 1, parameter_number, 2, parameter.get_string_member ("name"), -1);
+        		        store.insert_with_values (out iter, null, -1,
+        		            GROUP_COLUMN, group_number,
+        		            PARAMETER_COLUMN, parameter_number,
+        		            NAME_COLUMN, parameter.get_string_member ("name"),
+        		            -1);
            		        if (parameter.has_member ("unit")) {
-           		            store.set_value(iter, 6, parameter.get_string_member ("unit"));
+           		            store.set_value(iter, UNIT_COLUMN, parameter.get_string_member ("unit"));
         		        }
         		        if (parameter.has_member ("default")) {
-           		            store.set_value(iter, 3, parameter.get_string_member ("default"));
+           		            store.set_value(iter, DEFAULT_COLUMN, parameter.get_string_member ("default"));
         		        }
                     });
                 } catch (GLib.Error e) {
@@ -223,17 +259,25 @@ namespace L510_manager {
 
 		    });
 
-            view.insert_column_with_attributes(-1, "Group", new Gtk.CellRendererText (), "text", 0, null);
-		    view.insert_column_with_attributes(-1, "Number", new Gtk.CellRendererText (), "text", 1, null);
-		    view.insert_column_with_attributes(-1, "Parameter", new Gtk.CellRendererText (), "text", 2, null);
-		    view.insert_column_with_attributes(-1, "Default", new Gtk.CellRendererText (), "text", 3, null);
-		    view.insert_column_with_attributes(-1, "Profile", profile_cell, "text", 4, null);
-		    view.insert_column_with_attributes(-1, "VFD", new Gtk.CellRendererText (), "text", 5, null);
-		    view.insert_column_with_attributes(-1, "Unit", new Gtk.CellRendererText (), "text", 6, null);
+            view.insert_column_with_attributes(-1, "Group", new Gtk.CellRendererText (), "text", GROUP_COLUMN, null);
+		    view.insert_column_with_attributes(-1, "Number", new Gtk.CellRendererText (), "text", PARAMETER_COLUMN, null);
+		    view.insert_column_with_attributes(-1, "Parameter", new Gtk.CellRendererText (), "text", NAME_COLUMN, null);
+		    view.insert_column_with_attributes(-1, "Default", new Gtk.CellRendererText (), "text", DEFAULT_COLUMN, null);
+		    view.insert_column_with_attributes(-1, "Profile", profile_cell, "text", PROFILE_COLUMN, null);
+		    view.insert_column_with_attributes(-1, "VFD", new Gtk.CellRendererText (), "text", VFD_COLUMN, null);
+		    view.insert_column_with_attributes(-1, "Unit", new Gtk.CellRendererText (), "text", UNIT_COLUMN, null);
         }
 
 		private void setup_all_parameters_treeview (Gtk.TreeView view) {
-		    var store = new Gtk.TreeStore (7, typeof (string), typeof (string), typeof (string), typeof (string), typeof (string), typeof (string), typeof (string));
+		    var store = new Gtk.TreeStore (7,
+		        typeof (string),
+		        typeof (string),
+		        typeof (string),
+		        typeof (string),
+		        typeof (string),
+		        typeof (string),
+		        typeof (string)
+		    );
 		    view.set_model (store);
 
             this.setup_parameter_columns (view);
@@ -247,16 +291,23 @@ namespace L510_manager {
                 var parameters = parser.get_root ().get_object ();
                 foreach (string group_number in parameters.get_members ()) {
                     var group = parameters.get_member (group_number).get_object ();
-                    store.insert_with_values (out group_iter, null, -1, 0, group_number, 2, group.get_string_member ("name"), -1);
+                    store.insert_with_values (out group_iter, null, -1,
+                        GROUP_COLUMN, group_number,
+                        NAME_COLUMN, group.get_string_member ("name"),
+                        -1);
                     foreach (string parameter_number in group.get_members ()) {
                         if (parameter_number != "name") {
                             var parameter = group.get_member (parameter_number).get_object ();
-                            store.insert_with_values (out parameter_iter, group_iter, -1, 0, group_number, 1, parameter_number, 2, parameter.get_string_member ("name"), -1);
+                            store.insert_with_values (out parameter_iter, group_iter, -1,
+                                GROUP_COLUMN, group_number,
+                                PARAMETER_COLUMN, parameter_number,
+                                NAME_COLUMN, parameter.get_string_member ("name"),
+                                -1);
                		        if (parameter.has_member ("unit")) {
-               		            store.set_value(parameter_iter, 6, parameter.get_string_member ("unit"));
+               		            store.set_value(parameter_iter, UNIT_COLUMN, parameter.get_string_member ("unit"));
             		        }
             		        if (parameter.has_member ("default")) {
-               		            store.set_value(parameter_iter, 3, parameter.get_string_member ("default"));
+               		            store.set_value(parameter_iter, DEFAULT_COLUMN, parameter.get_string_member ("default"));
             		        }
                         }
                     }
