@@ -101,15 +101,9 @@ namespace L510_manager {
                         string group_number = null;
                         string parameter_number = null;
                         string default_value = null;
-                        double scale = 1;
+
                         model.get(iter, GROUP_COLUMN, &group_number, PARAMETER_COLUMN, &parameter_number, DEFAULT_COLUMN, &default_value, -1);
-                        if (default_value != null && default_value.contains(".")) {
-                            if (default_value.length - default_value.index_of_char ('.') == 2) {
-                                scale = 0.1;
-                            } else if (default_value.length - default_value.index_of_char ('.', 0) == 3) {
-                                scale = 0.01;
-                            }
-                        }
+
                         if (parameter_number != null) {
                             int group_int = int.parse (group_number);
                             int parameter_int = int.parse (parameter_number);
@@ -118,13 +112,13 @@ namespace L510_manager {
                             if (modbus.read_registers (register, 1, &val) == -1) {
                                 error ("Modbus read error.");
                             } else {
-                                if (scale == 1) {
-                                    ((Gtk.TreeStore) model).set_value(iter, VFD_COLUMN, val);
-                                } else {
-                                    string format = "%.2f";
-                                    if (scale == 0.1) { format = "%.1f"; }
+                                if (default_value != null && default_value.contains(".")) {
+                                    double scale = (default_value.length - default_value.index_of_char ('.') == 2) ? 0.1 : 0.01;
+                                    string format = (scale == 0.1) ? "%.1f" : "%.2f";
                                     char[] buffer = new char[double.DTOSTR_BUF_SIZE];
                                     ((Gtk.TreeStore) model).set_value(iter, VFD_COLUMN, (val * scale).format(buffer, format));
+                                } else {
+                                    ((Gtk.TreeStore) model).set_value(iter, VFD_COLUMN, val);
                                 }
                             }
                         }
