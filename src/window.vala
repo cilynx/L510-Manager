@@ -44,6 +44,8 @@ namespace L510_manager {
 
         private Modbus.Context modbus;
 
+        private VFD_Config vfd_config = new VFD_Config ("/com/wolfteck/L510Manager/json/parameters.json");
+
 		public Window (Gtk.Application app) {
 			Object (application: app);
 
@@ -278,37 +280,21 @@ namespace L510_manager {
 
             Gtk.TreeIter group_iter;
             Gtk.TreeIter parameter_iter;
-            try {
-                var stream = resources_open_stream ("/com/wolfteck/L510Manager/json/parameters.json", ResourceLookupFlags.NONE);
-                Json.Parser parser = new Json.Parser ();
-                parser.load_from_stream (stream);
-                var parameters = parser.get_root ().get_object ();
-                foreach (string group_number in parameters.get_members ()) {
-                    var group = parameters.get_member (group_number).get_object ();
-                    store.insert_with_values (out group_iter, null, -1,
-                        GROUP_COLUMN, group_number,
-                        NAME_COLUMN, group.get_string_member ("name"),
+            foreach (Group group in vfd_config.get_groups ()) {
+                store.insert_with_values (out group_iter, null, -1,
+                    GROUP_COLUMN, group.number,
+                    NAME_COLUMN, group.name,
+                    -1);
+                foreach (Parameter parameter in group.get_parameters ()) {
+                    store.insert_with_values (out parameter_iter, group_iter, -1,
+                        GROUP_COLUMN, group.number,
+                        PARAMETER_COLUMN, parameter.number,
+                        NAME_COLUMN, parameter.name,
+                        DEFAULT_COLUMN, parameter.dflt,
+                        UNIT_COLUMN, parameter.unit,
                         -1);
-                    foreach (string parameter_number in group.get_members ()) {
-                        if (parameter_number != "name") {
-                            var parameter = group.get_member (parameter_number).get_object ();
-                            store.insert_with_values (out parameter_iter, group_iter, -1,
-                                GROUP_COLUMN, group_number,
-                                PARAMETER_COLUMN, parameter_number,
-                                NAME_COLUMN, parameter.get_string_member ("name"),
-                                -1);
-               		        if (parameter.has_member ("unit")) {
-               		            store.set_value(parameter_iter, UNIT_COLUMN, parameter.get_string_member ("unit"));
-            		        }
-            		        if (parameter.has_member ("default")) {
-               		            store.set_value(parameter_iter, DEFAULT_COLUMN, parameter.get_string_member ("default"));
-            		        }
-                        }
-                    }
                 }
-            } catch (GLib.Error e) {
-                error ("can't load parameters from resource: %s", e.message);
             }
-		}
+        }
 	}
 }
