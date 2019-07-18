@@ -20,19 +20,17 @@ public class VFD_Config : GLib.Object {
                         var json_parameter = json_group.get_member (parameter_number).get_object ();
                         var parameter = new Parameter(group, parameter_number, json_parameter.get_string_member ("name"));
                         if (json_parameter.has_member ("unit")) {
-               		        parameter.unit = json_parameter.get_string_member ("unit");
+                        parameter.unit = json_parameter.get_string_member ("unit");
                         }
-            		    if (json_parameter.has_member ("default")) {
-            		        parameter.dflt = json_parameter.get_string_member ("default");
-            		    }
-            		}
+                        if (json_parameter.has_member ("default")) {
+                            parameter.dflt = json_parameter.get_string_member ("default");
+                        }
+                    }
                 }
             }
         } catch (GLib.Error e) {
             error ("can't load parameters from resource: %s", e.message);
         }
-
-
     }
 }
 

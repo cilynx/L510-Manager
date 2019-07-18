@@ -17,8 +17,8 @@
  */
 
 namespace L510_manager {
-	[GtkTemplate (ui = "/com/wolfteck/L510Manager/window.ui")]
-	public class Window : Gtk.ApplicationWindow {
+    [GtkTemplate (ui = "/com/wolfteck/L510Manager/window.ui")]
+    public class Window : Gtk.ApplicationWindow {
         [GtkChild]
         Gtk.TreeView all_parameters_treeview;
 
@@ -46,8 +46,8 @@ namespace L510_manager {
 
         private VFD_Config vfd_config = new VFD_Config ("/com/wolfteck/L510Manager/json/parameters.json");
 
-		public Window (Gtk.Application app) {
-			Object (application: app);
+        public Window (Gtk.Application app) {
+            Object (application: app);
 
             setup_all_parameters_treeview (all_parameters_treeview);
 
@@ -59,7 +59,7 @@ namespace L510_manager {
 
             var new_profile_action = new SimpleAction ("new_profile", null);
             new_profile_action.activate.connect (() => {
-        	    print ("New\n");
+                print ("New\n");
             });
             this.add_action (new_profile_action);
 
@@ -78,26 +78,26 @@ namespace L510_manager {
             this.add_action (save_profile_action);
 
             var connect_serial_action = new SimpleAction.stateful ("connect_serial", null, new Variant.boolean (false));
-		    connect_serial_action.activate.connect (() => {
+            connect_serial_action.activate.connect (() => {
                 debug ("Action %s activated\n", connect_serial_action.get_name ());
                 Variant state = connect_serial_action.get_state ();
-    			bool is_open = state.get_boolean ();
+                bool is_open = state.get_boolean ();
                 if (is_open) {
                     debug("Closing modbus connection");
-           			modbus.close ();
+                    modbus.close ();
                 } else {
                     debug("Opening modbus connection");
-        			modbus = new Modbus.Context.rtu ("/dev/ttyUSB0", 19200, 'N', 8, 1);
+                    modbus = new Modbus.Context.rtu ("/dev/ttyUSB0", 19200, 'N', 8, 1);
                     modbus.set_debug(true);
                     modbus.rtu_set_rts(1);
 
-        			if (modbus.set_slave (1) == -1 ) {
-        			    error ("Failed to set rs485 slave.");
-        			}
+                    if (modbus.set_slave (1) == -1 ) {
+                        error ("Failed to set rs485 slave.");
+                    }
 
-        			if (modbus.connect () == -1) {
-        			    error ("Connection failed.");
-        			}
+                    if (modbus.connect () == -1) {
+                        error ("Connection failed.");
+                    }
 
                     all_parameters_treeview.get_model ().@foreach((model, path, iter) => {
                         string group_number = null;
@@ -127,7 +127,7 @@ namespace L510_manager {
                         return false;
                     });
                 }
-    			connect_serial_action.set_state (new Variant.boolean (!is_open));
+                connect_serial_action.set_state (new Variant.boolean (!is_open));
             });
             this.add_action (connect_serial_action);
 
@@ -165,7 +165,7 @@ namespace L510_manager {
                 debug (@"state change to $(target.get_string())\n");
             });
             this.add_action (stop_bits_action);
-		}
+        }
 
         private void on_perameter_sets_selection_changed (Gtk.TreeSelection selection) {
             Gtk.TreeModel model;
@@ -184,42 +184,42 @@ namespace L510_manager {
                     typeof (string),
                     typeof (string)
                     );
-    		    parameter_set_treeview.set_model (store);
+                parameter_set_treeview.set_model (store);
 
-    		    try {
-        		    // Fetch parameter set from JSON
-        		    var parameter_sets_stream = resources_open_stream ("/com/wolfteck/L510Manager/json/parameter_sets.json", ResourceLookupFlags.NONE);
-        		    Json.Parser parser = new Json.Parser ();
-        		    parser.load_from_stream (parameter_sets_stream);
-        		    var parameter_set = parser.get_root ().get_object ().get_member (parameter_set_name);
+                try {
+                    // Fetch parameter set from JSON
+                    var parameter_sets_stream = resources_open_stream ("/com/wolfteck/L510Manager/json/parameter_sets.json", ResourceLookupFlags.NONE);
+                    Json.Parser parser = new Json.Parser ();
+                    parser.load_from_stream (parameter_sets_stream);
+                    var parameter_set = parser.get_root ().get_object ().get_member (parameter_set_name);
 
-        		    // Grab array from parameter set
-        		    var parameter_array = parameter_set.get_array ();
+                    // Grab array from parameter set
+                    var parameter_array = parameter_set.get_array ();
 
-    		        // Fetch parameters from JSON
+                    // Fetch parameters from JSON
                     Json.Parser all_parameters_parser = new Json.Parser ();
                     var all_parameters_stream = resources_open_stream ("/com/wolfteck/L510Manager/json/parameters.json", ResourceLookupFlags.NONE);
-        		    all_parameters_parser.load_from_stream (all_parameters_stream);
-        		    var parameters_root = all_parameters_parser.get_root ().get_object ();
+                    all_parameters_parser.load_from_stream (all_parameters_stream);
+                    var parameters_root = all_parameters_parser.get_root ().get_object ();
 
                     // Add parameters to TreeStore
                     parameter_array.foreach_element ((array, index, node) => {
                         string[] coordinates = node.get_string ().split ("-");
-        		        var group_number = coordinates[0];
-        		        var parameter_number = coordinates[1];
+                        var group_number = coordinates[0];
+                        var parameter_number = coordinates[1];
 
                         var parameter = parameters_root.get_member (group_number).get_object ().get_member (parameter_number).get_object ();
-        		        store.insert_with_values (out iter, null, -1,
-        		            GROUP_COLUMN, group_number,
-        		            PARAMETER_COLUMN, parameter_number,
-        		            NAME_COLUMN, parameter.get_string_member ("name"),
-        		            -1);
-           		        if (parameter.has_member ("unit")) {
-           		            store.set_value(iter, UNIT_COLUMN, parameter.get_string_member ("unit"));
-        		        }
-        		        if (parameter.has_member ("default")) {
-           		            store.set_value(iter, DEFAULT_COLUMN, parameter.get_string_member ("default"));
-        		        }
+                        store.insert_with_values (out iter, null, -1,
+                            GROUP_COLUMN, group_number,
+                            PARAMETER_COLUMN, parameter_number,
+                            NAME_COLUMN, parameter.get_string_member ("name"),
+                            -1);
+                        if (parameter.has_member ("unit")) {
+                            store.set_value(iter, UNIT_COLUMN, parameter.get_string_member ("unit"));
+                        }
+                        if (parameter.has_member ("default")) {
+                            store.set_value(iter, DEFAULT_COLUMN, parameter.get_string_member ("default"));
+                        }
                     });
                 } catch (GLib.Error e) {
                     error ("can't load resource: %s", e.message);
@@ -229,12 +229,12 @@ namespace L510_manager {
 
         private void setup_parameter_sets_treeview (Gtk.TreeView view) {
             var store = new Gtk.TreeStore (2, typeof (string), typeof (string));
-		    view.set_model (store);
+            view.set_model (store);
 
             view.insert_column_with_attributes(-1, "Parameter Set", new Gtk.CellRendererText (), "text", 0, null);
 
-		    Gtk.TreeIter iter;
-		    try {
+            Gtk.TreeIter iter;
+            try {
                 var stream = resources_open_stream ("/com/wolfteck/L510Manager/json/parameter_sets.json", ResourceLookupFlags.NONE);
                 Json.Parser parser = new Json.Parser ();
                 parser.load_from_stream (stream);
@@ -243,38 +243,38 @@ namespace L510_manager {
                     var parameter_set = parameter_sets.get_member (parameter_set_name);
                     store.insert_with_values (out iter, null, -1, 0, parameter_set_name, 1, parameter_set.get_array, -1);
                 }
-		    } catch (GLib.Error e) {
+            } catch (GLib.Error e) {
                 error ("can't load parameters from resource: %s", e.message);
             }
         }
 
         private void setup_parameter_columns (Gtk.TreeView view) {
             var profile_cell = new Gtk.CellRendererText ();
-		    profile_cell.editable = true;
-		    profile_cell.edited.connect ((path, new_text) => {
+            profile_cell.editable = true;
+            profile_cell.edited.connect ((path, new_text) => {
 
-		    });
+            });
 
             view.insert_column_with_attributes(-1, "Group", new Gtk.CellRendererText (), "text", GROUP_COLUMN, null);
-		    view.insert_column_with_attributes(-1, "Number", new Gtk.CellRendererText (), "text", PARAMETER_COLUMN, null);
-		    view.insert_column_with_attributes(-1, "Parameter", new Gtk.CellRendererText (), "text", NAME_COLUMN, null);
-		    view.insert_column_with_attributes(-1, "Default", new Gtk.CellRendererText (), "text", DEFAULT_COLUMN, null);
-		    view.insert_column_with_attributes(-1, "Profile", profile_cell, "text", PROFILE_COLUMN, null);
-		    view.insert_column_with_attributes(-1, "VFD", new Gtk.CellRendererText (), "text", VFD_COLUMN, null);
-		    view.insert_column_with_attributes(-1, "Unit", new Gtk.CellRendererText (), "text", UNIT_COLUMN, null);
+            view.insert_column_with_attributes(-1, "Number", new Gtk.CellRendererText (), "text", PARAMETER_COLUMN, null);
+            view.insert_column_with_attributes(-1, "Parameter", new Gtk.CellRendererText (), "text", NAME_COLUMN, null);
+            view.insert_column_with_attributes(-1, "Default", new Gtk.CellRendererText (), "text", DEFAULT_COLUMN, null);
+            view.insert_column_with_attributes(-1, "Profile", profile_cell, "text", PROFILE_COLUMN, null);
+            view.insert_column_with_attributes(-1, "VFD", new Gtk.CellRendererText (), "text", VFD_COLUMN, null);
+            view.insert_column_with_attributes(-1, "Unit", new Gtk.CellRendererText (), "text", UNIT_COLUMN, null);
         }
 
-		private void setup_all_parameters_treeview (Gtk.TreeView view) {
-		    var store = new Gtk.TreeStore (7,
-		        typeof (string),
-		        typeof (string),
-		        typeof (string),
-		        typeof (string),
-		        typeof (string),
-		        typeof (string),
-		        typeof (string)
-		    );
-		    view.set_model (store);
+        private void setup_all_parameters_treeview (Gtk.TreeView view) {
+            var store = new Gtk.TreeStore (7,
+                typeof (string),
+                typeof (string),
+                typeof (string),
+                typeof (string),
+                typeof (string),
+                typeof (string),
+                typeof (string)
+            );
+            view.set_model (store);
 
             this.setup_parameter_columns (view);
 
@@ -296,5 +296,5 @@ namespace L510_manager {
                 }
             }
         }
-	}
+    }
 }
