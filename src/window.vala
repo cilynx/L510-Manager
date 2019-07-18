@@ -102,25 +102,20 @@ namespace L510_manager {
                     all_parameters_treeview.get_model ().@foreach((model, path, iter) => {
                         string group_number = null;
                         string parameter_number = null;
-                        string default_value = null;
-
-                        model.get(iter, GROUP_COLUMN, &group_number, PARAMETER_COLUMN, &parameter_number, DEFAULT_COLUMN, &default_value, -1);
+                        model.get(iter, GROUP_COLUMN, &group_number, PARAMETER_COLUMN, &parameter_number, -1);
 
                         if (parameter_number != null) {
-                            int group_int = int.parse (group_number);
-                            int parameter_int = int.parse (parameter_number);
-                            int register = 0x100 * group_int + parameter_int;
+                            Parameter parameter = vfd_config.get_parameter(group_number + "-" + parameter_number);
+                            int register = 0x100 * parameter.group.integer + parameter.integer;
                             uint16 val = 0;
                             if (modbus.read_registers (register, 1, &val) == -1) {
                                 error ("Modbus read error.");
                             } else {
-                                if (default_value != null && default_value.contains(".")) {
-                                    double scale = (default_value.length - default_value.index_of_char ('.') == 2) ? 0.1 : 0.01;
-                                    string format = (scale == 0.1) ? "%.1f" : "%.2f";
-                                    char[] buffer = new char[double.DTOSTR_BUF_SIZE];
-                                    ((Gtk.TreeStore) model).set_value(iter, VFD_COLUMN, (val * scale).format(buffer, format));
-                                } else {
+                                if (parameter.scale == 1) {
                                     ((Gtk.TreeStore) model).set_value(iter, VFD_COLUMN, val);
+                                } else {
+                                    char[] buffer = new char[double.DTOSTR_BUF_SIZE];
+                                    ((Gtk.TreeStore) model).set_value(iter, VFD_COLUMN, (val * parameter.scale).format(buffer, parameter.format));
                                 }
                             }
                         }
@@ -186,65 +181,29 @@ namespace L510_manager {
                     );
                 parameter_set_treeview.set_model (store);
 
-                try {
-                    // Fetch parameter set from JSON
-                    var parameter_sets_stream = resources_open_stream ("/com/wolfteck/L510Manager/json/parameter_sets.json", ResourceLookupFlags.NONE);
-                    Json.Parser parser = new Json.Parser ();
-                    parser.load_from_stream (parameter_sets_stream);
-                    var parameter_set = parser.get_root ().get_object ().get_member (parameter_set_name);
-
-                    // Grab array from parameter set
-                    var parameter_array = parameter_set.get_array ();
-
-                    // Fetch parameters from JSON
-                    Json.Parser all_parameters_parser = new Json.Parser ();
-                    var all_parameters_stream = resources_open_stream ("/com/wolfteck/L510Manager/json/parameters.json", ResourceLookupFlags.NONE);
-                    all_parameters_parser.load_from_stream (all_parameters_stream);
-                    var parameters_root = all_parameters_parser.get_root ().get_object ();
-
-                    // Add parameters to TreeStore
-                    parameter_array.foreach_element ((array, index, node) => {
-                        string[] coordinates = node.get_string ().split ("-");
-                        var group_number = coordinates[0];
-                        var parameter_number = coordinates[1];
-
-                        var parameter = parameters_root.get_member (group_number).get_object ().get_member (parameter_number).get_object ();
-                        store.insert_with_values (out iter, null, -1,
-                            GROUP_COLUMN, group_number,
-                            PARAMETER_COLUMN, parameter_number,
-                            NAME_COLUMN, parameter.get_string_member ("name"),
-                            -1);
-                        if (parameter.has_member ("unit")) {
-                            store.set_value(iter, UNIT_COLUMN, parameter.get_string_member ("unit"));
-                        }
-                        if (parameter.has_member ("default")) {
-                            store.set_value(iter, DEFAULT_COLUMN, parameter.get_string_member ("default"));
-                        }
-                    });
-                } catch (GLib.Error e) {
-                    error ("can't load resource: %s", e.message);
+                Group parameter_set = vfd_config.get_parameter_set (parameter_set_name);
+                foreach (Parameter parameter in parameter_set.get_parameters ()) {
+                    store.insert_with_values (out iter, null, -1,
+                        GROUP_COLUMN, parameter.group.number,
+                        PARAMETER_COLUMN, parameter.number,
+                        NAME_COLUMN, parameter.name,
+                        UNIT_COLUMN, parameter.unit,
+                        DEFAULT_COLUMN, parameter.dflt,
+                        -1);
                 }
             }
         }
 
         private void setup_parameter_sets_treeview (Gtk.TreeView view) {
+            vfd_config.load_parameter_sets ("/com/wolfteck/L510Manager/json/parameter_sets.json");
+
             var store = new Gtk.TreeStore (2, typeof (string), typeof (string));
             view.set_model (store);
-
             view.insert_column_with_attributes(-1, "Parameter Set", new Gtk.CellRendererText (), "text", 0, null);
 
             Gtk.TreeIter iter;
-            try {
-                var stream = resources_open_stream ("/com/wolfteck/L510Manager/json/parameter_sets.json", ResourceLookupFlags.NONE);
-                Json.Parser parser = new Json.Parser ();
-                parser.load_from_stream (stream);
-                var parameter_sets = parser.get_root ().get_object ();
-                foreach (string parameter_set_name in parameter_sets.get_members ()) {
-                    var parameter_set = parameter_sets.get_member (parameter_set_name);
-                    store.insert_with_values (out iter, null, -1, 0, parameter_set_name, 1, parameter_set.get_array, -1);
-                }
-            } catch (GLib.Error e) {
-                error ("can't load parameters from resource: %s", e.message);
+            foreach (Group parameter_set in vfd_config.get_parameter_sets ()) {
+                store.insert_with_values (out iter, null, -1, 0, parameter_set.name, -1);
             }
         }
 
