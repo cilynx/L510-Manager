@@ -84,6 +84,12 @@ public class VFD_Config : GLib.Object {
                         if (json_parameter.has_member ("default")) {
                             parameter.dflt = json_parameter.get_string_member ("default");
                         }
+                        if (json_parameter.has_member ("options")) {
+                            var options = json_parameter.get_member ("options").get_object ();
+                            foreach (string id in options.get_members ()) {
+                                parameter.add_option(id, options.get_string_member (id));
+                            }
+                        }
                     }
                 }
             }
@@ -124,12 +130,49 @@ public class Group : GLib.Object {
 
 }
 
+public class Option : GLib.Object {
+    public string id;
+    public string name;
+
+    public Option (string option_id, string option_name) {
+        id = option_id;
+        name = option_name;
+    }
+}
+
 public class Parameter : GLib.Object {
+    private Option[] options;
+    private string _dflt;
+
     public Group group;
-    public string dflt;
     public string name;
     public string number;
     public string unit;
+
+    public string dflt {
+        get {
+            print("Getting dflt.  _dflt is:%s\n", _dflt);
+            if (this.has_options) {
+                return this.option(_dflt).name;
+            } else {
+                return _dflt;
+            }
+        }
+        set { _dflt = value; }
+    }
+
+    public Option option (string search) {
+        print("Parameter.option: Looking for %s\n", search);
+        foreach (Option option in options) {
+            print("id:%s\n", option.id);
+            print("name:%s\n", option.name);
+
+            if (option.id == search || option.name == search) {
+                return option;
+            }
+        }
+        error ("Parameter.option: No match found");
+    }
 
     public int integer {
         get { return int.parse (number); }
@@ -137,8 +180,8 @@ public class Parameter : GLib.Object {
 
     public double scale {
         get {
-            if (this.dflt != null && this.dflt.contains(".")) {
-                return (this.dflt.length - this.dflt.index_of_char ('.') == 2) ? 0.1 : 0.01;
+            if (this._dflt != null && this._dflt.contains(".")) {
+                return (this._dflt.length - this._dflt.index_of_char ('.') == 2) ? 0.1 : 0.01;
             } else {
                 return 1;
             }
@@ -149,6 +192,18 @@ public class Parameter : GLib.Object {
         get {
             return (this.scale == 0.1) ? "%.1f" : "%.2f";
         }
+    }
+
+    public bool has_options {
+        get {
+            return this.options.length > 0;
+        }
+    }
+
+    public void add_option (string id, string name) {
+        var option = new Option (id, name);
+        options += option;
+        print("%s\n", option.name);
     }
 
     public Parameter (Group parameter_group, string parameter_number, string parameter_name) {

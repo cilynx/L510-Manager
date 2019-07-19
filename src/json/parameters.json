@@ -1610,13 +1610,6 @@
       },
       "08" : {
          "default" : "0000",
-         "options" : {
-            "1150" : "Reset to factory setting 50Hz, 220V/380V drive.",
-            "1160" : "Reset to factory setting 60Hz, 220V/380V drive.",
-            "1250" : "Reset to factory setting 50Hz, 230V/400V drive.",
-            "1260" : "Reset to factory setting 60Hz, 230V/460V drive.",
-            "1350" : "Reset to factory setting 50Hz, 220V/415V drive."
-         },
          "name" : "Reset Drive to Factory Settings"
       },
       "name" : "Inspection and Maintenance functions"

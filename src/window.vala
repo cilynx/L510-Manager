@@ -111,7 +111,9 @@ namespace L510_manager {
                             if (modbus.read_registers (register, 1, &val) == -1) {
                                 error ("Modbus read error.");
                             } else {
-                                if (parameter.scale == 1) {
+                                if (parameter.has_options) {
+                                    ((Gtk.TreeStore) model).set_value(iter, VFD_COLUMN, parameter.option (val.to_string ()).name);
+                                } else if (parameter.scale == 1) {
                                     ((Gtk.TreeStore) model).set_value(iter, VFD_COLUMN, val);
                                 } else {
                                     char[] buffer = new char[double.DTOSTR_BUF_SIZE];
