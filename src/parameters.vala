@@ -189,15 +189,11 @@ public class Parameter : GLib.Object {
     }
 
     public string format {
-        get {
-            return (this.scale == 0.1) ? "%.1f" : "%.2f";
-        }
+        get { return (this.scale == 0.1) ? "%.1f" : "%.2f"; }
     }
 
     public bool has_options {
-        get {
-            return this.options.length > 0;
-        }
+        get { return this.options.length > 0; }
     }
 
     public void add_option (string id, string name) {
