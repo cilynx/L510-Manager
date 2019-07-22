@@ -10,6 +10,18 @@ public class VFD_Config : GLib.Object {
         return parameter_sets;
     }
 
+    public int group_count {
+        get { return groups.length; }
+    }
+
+    public int parameter_count {
+        get {
+            int sum = 0;
+            foreach (Group group in groups) { sum += group.parameter_count; }
+            return sum;
+        }
+    }
+
     public Group get_parameter_set (string search) {
         foreach (Group parameter_set in parameter_sets) {
             print("Name: %s\n", parameter_set.name);
@@ -110,6 +122,9 @@ public class Group : GLib.Object {
         get { return int.parse (number); }
     }
 
+    public int parameter_count {
+        get { return parameters.length; }
+    }
 
     public Group (VFD_Config config, string? group_number, string group_name) {
         name = group_name;

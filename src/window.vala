@@ -32,7 +32,7 @@ namespace L510_manager {
         Gtk.Label parameter_set_label;
 /*
         [GtkChild]
-        Menu device_menu;
+        Gtk.MenuButton primary_menu_button;
 */
         static int GROUP_COLUMN = 0;
         static int PARAMETER_COLUMN = 1;
@@ -99,6 +99,10 @@ namespace L510_manager {
                         error ("Connection failed.");
                     }
 
+                    ProgressDialog progress_dialog = new ProgressDialog(this, "Loading Parameters from VFD");
+                    progress_dialog.total = vfd_config.parameter_count + vfd_config.group_count;
+
+                    int index = 0;
                     all_parameters_treeview.get_model ().@foreach((model, path, iter) => {
                         string group_number = null;
                         string parameter_number = null;
@@ -120,6 +124,12 @@ namespace L510_manager {
                                     ((Gtk.TreeStore) model).set_value(iter, VFD_COLUMN, (val * parameter.scale).format(buffer, parameter.format));
                                 }
                             }
+                            progress_dialog.text = parameter.group.name;
+                        }
+                        progress_dialog.current = ++index;
+                        if (index == progress_dialog.total) {
+                            progress_dialog.close ();
+                            // primary_menu_button.get_popover ().hide ();
                         }
                         return false;
                     });
