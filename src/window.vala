@@ -53,7 +53,7 @@ namespace L510_manager {
 
             setup_parameter_sets_treeview (parameter_sets_treeview);
             var parameter_set_selection = parameter_sets_treeview.get_selection ();
-            parameter_set_selection.changed.connect (this.on_perameter_sets_selection_changed);
+            parameter_set_selection.changed.connect (this.on_parameter_sets_selection_changed);
 
             setup_parameter_columns (parameter_set_treeview);
 
@@ -164,7 +164,7 @@ namespace L510_manager {
             this.add_action (stop_bits_action);
         }
 
-        private void on_perameter_sets_selection_changed (Gtk.TreeSelection selection) {
+        private void on_parameter_sets_selection_changed (Gtk.TreeSelection selection) {
             Gtk.TreeModel model;
             Gtk.TreeIter iter;
             string parameter_set_name;
