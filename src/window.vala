@@ -43,6 +43,7 @@ namespace L510_manager {
         static int UNIT_COLUMN = 6;
 
         private Modbus.Context modbus;
+        private bool modbus_connected = false;
 
         private VFD_Config vfd_config = new VFD_Config ("/com/wolfteck/L510Manager/json/parameters.json");
 
@@ -135,6 +136,7 @@ namespace L510_manager {
                     });
                 }
                 connect_serial_action.set_state (new Variant.boolean (!is_open));
+                modbus_connected = connect_serial_action.get_state ().get_boolean ();
             });
             this.add_action (connect_serial_action);
 
@@ -202,6 +204,22 @@ namespace L510_manager {
                         UNIT_COLUMN, parameter.unit,
                         DEFAULT_COLUMN, parameter.dflt,
                         -1);
+                    if (modbus_connected) {
+                        int register = 0x100 * parameter.group.integer + parameter.integer;
+                        uint16 val = 0;
+                        if (modbus.read_registers (register, 1, &val) == -1) {
+                            error ("Modbus read error.");
+                        } else {
+                            if (parameter.has_options) {
+                                store.set_value(iter, VFD_COLUMN, parameter.option (val.to_string ()).name);
+                            } else if (parameter.scale == 1) {
+                                store.set_value(iter, VFD_COLUMN, val);
+                            } else {
+                                char[] buffer = new char[double.DTOSTR_BUF_SIZE];
+                                store.set_value(iter, VFD_COLUMN, (val * parameter.scale).format(buffer, parameter.format));
+                            }
+                        }
+                    }
                 }
             }
         }
