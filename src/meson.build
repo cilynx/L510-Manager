@@ -4,6 +4,7 @@ l510_manager_sources = [
   'filedialog.vala',
   'parameters.vala',
   'dialogs.vala',
+  'vfd.vala',
 ]
 
 l510_manager_deps = [

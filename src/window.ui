@@ -157,10 +157,10 @@
       </item>
     </section>
     <section>
-      <attribute name="label">Serial</attribute>
+      <attribute name="label">VFD</attribute>
       <item>
         <attribute name="label">Connect</attribute>
-        <attribute name="action">win.connect_serial</attribute>
+        <attribute name="action">win.connect_vfd</attribute>
       </item>
       <submenu id="device_menu">
         <attribute name="label">Device</attribute>

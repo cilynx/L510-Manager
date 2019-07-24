@@ -42,10 +42,8 @@ namespace L510_manager {
         static int VFD_COLUMN = 5;
         static int UNIT_COLUMN = 6;
 
-        private Modbus.Context modbus;
-        private bool modbus_connected = false;
-
         private VFD_Config vfd_config = new VFD_Config ("/com/wolfteck/L510Manager/json/parameters.json");
+        private VFD vfd = new VFD ();
 
         public Window (Gtk.Application app) {
             Object (application: app);
@@ -78,28 +76,14 @@ namespace L510_manager {
             });
             this.add_action (save_profile_action);
 
-            var connect_serial_action = new SimpleAction.stateful ("connect_serial", null, new Variant.boolean (false));
-            connect_serial_action.activate.connect (() => {
-                debug ("Action %s activated\n", connect_serial_action.get_name ());
-                Variant state = connect_serial_action.get_state ();
-                bool is_open = state.get_boolean ();
-                if (is_open) {
-                    debug("Closing modbus connection");
-                    modbus.close ();
+            var connect_vfd_action = new SimpleAction.stateful ("connect_vfd", null, new Variant.boolean (false));
+            connect_vfd_action.activate.connect (() => {
+                debug ("Action %s activated\n", connect_vfd_action.get_name ());
+                bool widget_is_checked = connect_vfd_action.get_state ().get_boolean ();
+                if (widget_is_checked) {
+                    vfd.disconnect ();
                 } else {
-                    debug("Opening modbus connection");
-                    modbus = new Modbus.Context.rtu ("/dev/ttyUSB0", 19200, 'N', 8, 1);
-                    modbus.set_debug(true);
-                    modbus.rtu_set_rts(1);
-
-                    if (modbus.set_slave (1) == -1 ) {
-                        error ("Failed to set rs485 slave.");
-                    }
-
-                    if (modbus.connect () == -1) {
-                        error ("Connection failed.");
-                    }
-
+                    vfd.connect ();
                     ProgressDialog progress_dialog = new ProgressDialog(this, "Loading Parameters from VFD");
                     progress_dialog.total = vfd_config.parameter_count + vfd_config.group_count;
 
@@ -111,20 +95,7 @@ namespace L510_manager {
 
                         if (parameter_number != null) {
                             Parameter parameter = vfd_config.get_parameter(group_number + "-" + parameter_number);
-                            int register = 0x100 * parameter.group.integer + parameter.integer;
-                            uint16 val = 0;
-                            if (modbus.read_registers (register, 1, &val) == -1) {
-                                error ("Modbus read error.");
-                            } else {
-                                if (parameter.has_options) {
-                                    ((Gtk.TreeStore) model).set_value(iter, VFD_COLUMN, parameter.option (val.to_string ()).name);
-                                } else if (parameter.scale == 1) {
-                                    ((Gtk.TreeStore) model).set_value(iter, VFD_COLUMN, val);
-                                } else {
-                                    char[] buffer = new char[double.DTOSTR_BUF_SIZE];
-                                    ((Gtk.TreeStore) model).set_value(iter, VFD_COLUMN, (val * parameter.scale).format(buffer, parameter.format));
-                                }
-                            }
+                            ((Gtk.TreeStore) model).set_value(iter, VFD_COLUMN, vfd.get_parameter_value (parameter));
                             progress_dialog.text = parameter.group.name;
                         }
                         progress_dialog.current = ++index;
@@ -135,10 +106,9 @@ namespace L510_manager {
                         return false;
                     });
                 }
-                connect_serial_action.set_state (new Variant.boolean (!is_open));
-                modbus_connected = connect_serial_action.get_state ().get_boolean ();
+                connect_vfd_action.set_state (new Variant.boolean (vfd.is_connected));
             });
-            this.add_action (connect_serial_action);
+            this.add_action (connect_vfd_action);
 
             var device_action = new SimpleAction.stateful ("device", VariantType.STRING, new Variant.string ("/dev/ttyUSB0"));
             device_action.activate.connect((target) => {
@@ -204,21 +174,8 @@ namespace L510_manager {
                         UNIT_COLUMN, parameter.unit,
                         DEFAULT_COLUMN, parameter.dflt,
                         -1);
-                    if (modbus_connected) {
-                        int register = 0x100 * parameter.group.integer + parameter.integer;
-                        uint16 val = 0;
-                        if (modbus.read_registers (register, 1, &val) == -1) {
-                            error ("Modbus read error.");
-                        } else {
-                            if (parameter.has_options) {
-                                store.set_value(iter, VFD_COLUMN, parameter.option (val.to_string ()).name);
-                            } else if (parameter.scale == 1) {
-                                store.set_value(iter, VFD_COLUMN, val);
-                            } else {
-                                char[] buffer = new char[double.DTOSTR_BUF_SIZE];
-                                store.set_value(iter, VFD_COLUMN, (val * parameter.scale).format(buffer, parameter.format));
-                            }
-                        }
+                    if (vfd.is_connected) {
+                        store.set_value(iter, VFD_COLUMN, vfd.get_parameter_value(parameter));
                     }
                 }
             }
