@@ -112,6 +112,7 @@ namespace L510_manager {
 
             var device_action = new SimpleAction.stateful ("device", VariantType.STRING, new Variant.string ("/dev/ttyUSB0"));
             device_action.activate.connect((target) => {
+                vfd.device = target.get_string ();
                 device_action.set_state (target);
                 debug (@"state change to $(target.get_string())\n");
             });
@@ -119,6 +120,7 @@ namespace L510_manager {
 
             var baud_action = new SimpleAction.stateful ("baud", VariantType.STRING, new Variant.string ("19200"));
             baud_action.activate.connect((target) => {
+                vfd.baud = int.parse(target.get_string ());
                 baud_action.set_state (target);
                 debug (@"state change to $(target.get_string())\n");
             });
@@ -126,6 +128,7 @@ namespace L510_manager {
 
             var data_bits_action = new SimpleAction.stateful ("data_bits", VariantType.STRING, new Variant.string ("8"));
             data_bits_action.activate.connect((target) => {
+                vfd.data_bits = int.parse (target.get_string ());
                 data_bits_action.set_state (target);
                 debug (@"state change to $(target.get_string())\n");
             });
@@ -133,6 +136,7 @@ namespace L510_manager {
 
             var parity_action = new SimpleAction.stateful ("parity", VariantType.STRING, new Variant.string ("N"));
             parity_action.activate.connect((target) => {
+                vfd.parity = (char) target.get_string ().get_char ();
                 parity_action.set_state (target);
                 debug (@"state change to $(target.get_string())\n");
             });
@@ -140,6 +144,7 @@ namespace L510_manager {
 
             var stop_bits_action = new SimpleAction.stateful ("stop_bits", VariantType.STRING, new Variant.string ("1"));
             stop_bits_action.activate.connect((target) => {
+                vfd.stop_bits = int.parse (target.get_string ());
                 stop_bits_action.set_state (target);
                 debug (@"state change to $(target.get_string())\n");
             });

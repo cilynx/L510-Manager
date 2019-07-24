@@ -6,15 +6,15 @@ public class VFD : GLib.Object {
     public string device = "/dev/ttyUSB0";
     public int baud = 19200;
     public char parity = 'N';
-    public int bits = 8;
-    public int stopbits = 1;
+    public int data_bits = 8;
+    public int stop_bits = 1;
 
     public int slave_id = 1;
 
     public new bool connect () {
         debug("Opening modbus connection");
 
-        modbus = new Modbus.Context.rtu (device, baud, parity, bits, stopbits);
+        modbus = new Modbus.Context.rtu (device, baud, parity, data_bits, stop_bits);
         modbus.set_debug(true);
         modbus.rtu_set_rts(1);
 
