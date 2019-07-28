@@ -83,28 +83,33 @@ namespace L510_manager {
                 if (widget_is_checked) {
                     vfd.disconnect ();
                 } else {
-                    vfd.connect ();
-                    ProgressDialog progress_dialog = new ProgressDialog(this, "Loading Parameters from VFD");
-                    progress_dialog.total = vfd_config.parameter_count + vfd_config.group_count;
+                    if (vfd.connect ()) {
+                        ProgressDialog progress_dialog = new ProgressDialog(this, "Loading Parameters from VFD");
+                        progress_dialog.total = vfd_config.parameter_count + vfd_config.group_count;
 
-                    int index = 0;
-                    all_parameters_treeview.get_model ().@foreach((model, path, iter) => {
-                        string group_number = null;
-                        string parameter_number = null;
-                        model.get(iter, GROUP_COLUMN, &group_number, PARAMETER_COLUMN, &parameter_number, -1);
+                        int index = 0;
+                        all_parameters_treeview.get_model ().@foreach((model, path, iter) => {
+                            string group_number = null;
+                            string parameter_number = null;
+                            model.get(iter, GROUP_COLUMN, &group_number, PARAMETER_COLUMN, &parameter_number, -1);
 
-                        if (parameter_number != null) {
-                            Parameter parameter = vfd_config.get_parameter(group_number + "-" + parameter_number);
-                            ((Gtk.TreeStore) model).set_value(iter, VFD_COLUMN, vfd.get_parameter_value (parameter));
-                            progress_dialog.text = parameter.group.name;
-                        }
-                        progress_dialog.current = ++index;
-                        if (index == progress_dialog.total) {
-                            progress_dialog.close ();
-                            // primary_menu_button.get_popover ().hide ();
-                        }
-                        return false;
-                    });
+                            if (parameter_number != null) {
+                                Parameter parameter = vfd_config.get_parameter(group_number + "-" + parameter_number);
+                                ((Gtk.TreeStore) model).set_value(iter, VFD_COLUMN, vfd.get_parameter_value (parameter));
+                                progress_dialog.text = parameter.group.name;
+                            }
+                            progress_dialog.current = ++index;
+                            if (index == progress_dialog.total) {
+                                progress_dialog.close ();
+                                // primary_menu_button.get_popover ().hide ();
+                            }
+                            return false;
+                        });
+                    } else {
+                        var dialog = new Gtk.MessageDialog(this, Gtk.DialogFlags.MODAL, Gtk.MessageType.WARNING, Gtk.ButtonsType.OK, "Error connecting to VFD.  Check serial parameters.");
+                        dialog.run ();
+                        dialog.destroy ();
+                   }
                 }
                 connect_vfd_action.set_state (new Variant.boolean (vfd.is_connected));
             });
