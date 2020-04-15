@@ -1,0 +1,492 @@
+{
+   "L510-101-Hxx" : {
+      "Allowable momentary power loss time" : "1.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "1HP",
+      "Input voltage range" : "Single Phase 100-120V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "1.65KVA",
+      "Rated output current" : "4.3A",
+      "Suitable motor capacity" : "0.75KW"
+   },
+   "L510-101-SHxx" : {
+      "Allowable momentary power loss time" : "1.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "1HP",
+      "Input voltage range" : "Single Phase 100-120V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "1.65KVA",
+      "Rated output current" : "4.3A",
+      "Suitable motor capacity" : "0.75KW"
+   },
+   "L510-101-SHxx-xP" : {
+      "Allowable momentary power loss time" : "1.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "1HP",
+      "Input voltage range" : "Single Phase 100-120V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "1.65KVA",
+      "Rated output current" : "4.3A",
+      "Suitable motor capacity" : "0.75KW"
+   },
+   "L510-1P2-Hxx" : {
+      "Allowable momentary power loss time" : "1.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "0.25HP",
+      "Input voltage range" : "Single Phase 100-120V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "0.68KVA",
+      "Rated output current" : "1.8A",
+      "Suitable motor capacity" : "0.2KW"
+   },
+   "L510-1P2-SHxx" : {
+      "Allowable momentary power loss time" : "1.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "0.25HP",
+      "Input voltage range" : "Single Phase 100-120V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "0.68KVA",
+      "Rated output current" : "1.8A",
+      "Suitable motor capacity" : "0.2KW"
+   },
+   "L510-1P2-SHxx-xP" : {
+      "Allowable momentary power loss time" : "1.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "0.25HP",
+      "Input voltage range" : "Single Phase 100-120V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "0.68KVA",
+      "Rated output current" : "1.8A",
+      "Suitable motor capacity" : "0.2KW"
+   },
+   "L510-1P5-Hxx" : {
+      "Allowable momentary power loss time" : "1.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "0.5HP",
+      "Input voltage range" : "Single Phase 100-120V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "1.00KVA",
+      "Rated output current" : "2.6A",
+      "Suitable motor capacity" : "0.4KW"
+   },
+   "L510-1P5-SHxx" : {
+      "Allowable momentary power loss time" : "1.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "0.5HP",
+      "Input voltage range" : "Single Phase 100-120V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "1.00KVA",
+      "Rated output current" : "2.6A",
+      "Suitable motor capacity" : "0.4KW"
+   },
+   "L510-1P5-SHxx-xP" : {
+      "Allowable momentary power loss time" : "1.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "0.5HP",
+      "Input voltage range" : "Single Phase 100-120V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "1.00KVA",
+      "Rated output current" : "2.6A",
+      "Suitable motor capacity" : "0.4KW"
+   },
+   "L510-201-Hxx" : {
+      "Allowable momentary power loss time" : "1.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "1HP",
+      "Input voltage range" : "Single Phase/Three Phase 200-240V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "1.65KVA",
+      "Rated output current" : "4.3A",
+      "Suitable motor capacity" : "0.75KW"
+   },
+   "L510-201-SHxx" : {
+      "Allowable momentary power loss time" : "1.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "1HP",
+      "Input voltage range" : "Single Phase/Three Phase 200-240V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "1.65KVA",
+      "Rated output current" : "4.3A",
+      "Suitable motor capacity" : "0.75KW"
+   },
+   "L510-201-SHxx-xP" : {
+      "Allowable momentary power loss time" : "1.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "1HP",
+      "Input voltage range" : "Single Phase/Three Phase 200-240V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "1.65KVA",
+      "Rated output current" : "4.3A",
+      "Suitable motor capacity" : "0.75KW"
+   },
+   "L510-202-Hxx" : {
+      "Allowable momentary power loss time" : "2.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "2HP",
+      "Input voltage range" : "Single Phase/Three Phase 200-240V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "2.90KVA",
+      "Rated output current" : "7.5A",
+      "Suitable motor capacity" : "1.5KW"
+   },
+   "L510-202-SHxx" : {
+      "Allowable momentary power loss time" : "2.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "2HP",
+      "Input voltage range" : "Single Phase/Three Phase 200-240V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "2.90KVA",
+      "Rated output current" : "7.5A",
+      "Suitable motor capacity" : "1.5KW"
+   },
+   "L510-202-SHxx-xP" : {
+      "Allowable momentary power loss time" : "2.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "2HP",
+      "Input voltage range" : "Single Phase/Three Phase 200-240V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "2.90KVA",
+      "Rated output current" : "7.5A",
+      "Suitable motor capacity" : "1.5KW"
+   },
+   "L510-203-Hxx" : {
+      "Allowable momentary power loss time" : "2.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "3HP",
+      "Input voltage range" : "Single Phase/Three Phase 200-240V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "4.00KVA",
+      "Rated output current" : "10.5A",
+      "Suitable motor capacity" : "2.2KW"
+   },
+   "L510-203-SHxx" : {
+      "Allowable momentary power loss time" : "2.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "3HP",
+      "Input voltage range" : "Single Phase/Three Phase 200-240V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "4.00KVA",
+      "Rated output current" : "10.5A",
+      "Suitable motor capacity" : "2.2KW"
+   },
+   "L510-203-SHxx-xP" : {
+      "Allowable momentary power loss time" : "2.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "3HP",
+      "Input voltage range" : "Single Phase/Three Phase 200-240V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "4.00KVA",
+      "Rated output current" : "10.5A",
+      "Suitable motor capacity" : "2.2KW"
+   },
+   "L510-205-SHxx" : {
+      "Allowable momentary power loss time" : "2.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "5HP",
+      "Input voltage range" : "Three Phase 200-240V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "6.67KVA",
+      "Rated output current" : "17.5A",
+      "Suitable motor capacity" : "3.7KW"
+   },
+   "L510-205-SHxx-xP" : {
+      "Allowable momentary power loss time" : "2.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "5HP",
+      "Input voltage range" : "Three Phase 200-240V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "6.67KVA",
+      "Rated output current" : "17.5A",
+      "Suitable motor capacity" : "3.7KW"
+   },
+   "L510-208-SHxx" : {
+      "Allowable momentary power loss time" : "2.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "7.5HP",
+      "Input voltage range" : "Three Phase 200-240V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "9.91KVA",
+      "Rated output current" : "26A",
+      "Suitable motor capacity" : "5.5KW"
+   },
+   "L510-208-SHxx-xP" : {
+      "Allowable momentary power loss time" : "2.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "7.5HP",
+      "Input voltage range" : "Three Phase 200-240V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "9.91KVA",
+      "Rated output current" : "26A",
+      "Suitable motor capacity" : "5.5KW"
+   },
+   "L510-210-SHxx" : {
+      "Allowable momentary power loss time" : "2.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "10HP",
+      "Input voltage range" : "Three Phase 200-240V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "13.34KVA",
+      "Rated output current" : "35A",
+      "Suitable motor capacity" : "7.5KW"
+   },
+   "L510-210-SHxx-xP" : {
+      "Allowable momentary power loss time" : "2.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "10HP",
+      "Input voltage range" : "Three Phase 200-240V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "13.34KVA",
+      "Rated output current" : "35A",
+      "Suitable motor capacity" : "7.5KW"
+   },
+   "L510-2P2-Hxx" : {
+      "Allowable momentary power loss time" : "1.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "0.25HP",
+      "Input voltage range" : "Single Phase/Three Phase 200-240V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "0.68KVA",
+      "Rated output current" : "1.8A",
+      "Suitable motor capacity" : "0.2KW"
+   },
+   "L510-2P2-SHxx" : {
+      "Allowable momentary power loss time" : "1.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "0.25HP",
+      "Input voltage range" : "Single Phase/Three Phase 200-240V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "0.68KVA",
+      "Rated output current" : "1.8A",
+      "Suitable motor capacity" : "0.2KW"
+   },
+   "L510-2P2-SHxx-xP" : {
+      "Allowable momentary power loss time" : "1.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "0.25HP",
+      "Input voltage range" : "Single Phase/Three Phase 200-240V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "0.68KVA",
+      "Rated output current" : "1.8A",
+      "Suitable motor capacity" : "0.2KW"
+   },
+   "L510-2P5-Hxx" : {
+      "Allowable momentary power loss time" : "1.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "0.5HP",
+      "Input voltage range" : "Single Phase/Three Phase 200-240V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "1.00KVA",
+      "Rated output current" : "2.6A",
+      "Suitable motor capacity" : "0.4KW"
+   },
+   "L510-2P5-SHxx" : {
+      "Allowable momentary power loss time" : "1.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "0.5HP",
+      "Input voltage range" : "Single Phase/Three Phase 200-240V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "1.00KVA",
+      "Rated output current" : "2.6A",
+      "Suitable motor capacity" : "0.4KW"
+   },
+   "L510-2P5-SHxx-xP" : {
+      "Allowable momentary power loss time" : "1.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "0.5HP",
+      "Input voltage range" : "Single Phase/Three Phase 200-240V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "1.00KVA",
+      "Rated output current" : "2.6A",
+      "Suitable motor capacity" : "0.4KW"
+   },
+   "L510-2P7-SHxx" : {
+      "Allowable momentary power loss time" : "1.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "0.75HP",
+      "Input voltage range" : "Single Phase 200-240V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "1.30KVA",
+      "Rated output current" : "3.4A",
+      "Suitable motor capacity" : "0.55KW"
+   },
+   "L510-2P7-SHxx-xP" : {
+      "Allowable momentary power loss time" : "1.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "0.75HP",
+      "Input voltage range" : "Single Phase 200-240V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-240V",
+      "Rated capacity" : "1.30KVA",
+      "Rated output current" : "3.4A",
+      "Suitable motor capacity" : "0.55KW"
+   },
+   "L510-401-Hxx" : {
+      "Allowable momentary power loss time" : "2.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "1HP",
+      "Input voltage range" : "Three Phase 380-480V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-480V",
+      "Rated capacity" : "1.7KVA",
+      "Rated output current" : "2.3A",
+      "Suitable motor capacity" : "0.75KW"
+   },
+   "L510-401-SHxx" : {
+      "Allowable momentary power loss time" : "2.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "1HP",
+      "Input voltage range" : "Three Phase 380-480V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-480V",
+      "Rated capacity" : "1.7KVA",
+      "Rated output current" : "2.3A",
+      "Suitable motor capacity" : "0.75KW"
+   },
+   "L510-401-SHxx-xP" : {
+      "Allowable momentary power loss time" : "2.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "1HP",
+      "Input voltage range" : "Three Phase 380-480V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-480V",
+      "Rated capacity" : "1.7KVA",
+      "Rated output current" : "2.3A",
+      "Suitable motor capacity" : "0.75KW"
+   },
+   "L510-402-Hxx" : {
+      "Allowable momentary power loss time" : "2.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "2HP",
+      "Input voltage range" : "Three Phase 380-480V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-480V",
+      "Rated capacity" : "2.9KVA",
+      "Rated output current" : "3.8A",
+      "Suitable motor capacity" : "1.5KW"
+   },
+   "L510-402-SHxx" : {
+      "Allowable momentary power loss time" : "2.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "2HP",
+      "Input voltage range" : "Three Phase 380-480V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-480V",
+      "Rated capacity" : "2.9KVA",
+      "Rated output current" : "3.8A",
+      "Suitable motor capacity" : "1.5KW"
+   },
+   "L510-402-SHxx-xP" : {
+      "Allowable momentary power loss time" : "2.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "2HP",
+      "Input voltage range" : "Three Phase 380-480V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-480V",
+      "Rated capacity" : "2.9KVA",
+      "Rated output current" : "3.8A",
+      "Suitable motor capacity" : "1.5KW"
+   },
+   "L510-403-Hxx" : {
+      "Allowable momentary power loss time" : "2.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "3HP",
+      "Input voltage range" : "Three Phase 380-480V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-480V",
+      "Rated capacity" : "4.0KVA",
+      "Rated output current" : "5.2A",
+      "Suitable motor capacity" : "2.2KW"
+   },
+   "L510-403-SHxx" : {
+      "Allowable momentary power loss time" : "2.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "3HP",
+      "Input voltage range" : "Three Phase 380-480V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-480V",
+      "Rated capacity" : "4.0KVA",
+      "Rated output current" : "5.2A",
+      "Suitable motor capacity" : "2.2KW"
+   },
+   "L510-403-SHxx-xP" : {
+      "Allowable momentary power loss time" : "2.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "3HP",
+      "Input voltage range" : "Three Phase 380-480V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-480V",
+      "Rated capacity" : "4.0KVA",
+      "Rated output current" : "5.2A",
+      "Suitable motor capacity" : "2.2KW"
+   },
+   "L510-405-SHxx" : {
+      "Allowable momentary power loss time" : "2.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "5HP",
+      "Input voltage range" : "Three Phase 380-480V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-480V",
+      "Rated capacity" : "7.01KVA",
+      "Rated output current" : "9.2A",
+      "Suitable motor capacity" : "3.7KW"
+   },
+   "L510-405-SHxx-xP" : {
+      "Allowable momentary power loss time" : "2.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "5HP",
+      "Input voltage range" : "Three Phase 380-480V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-480V",
+      "Rated capacity" : "7.01KVA",
+      "Rated output current" : "9.2A",
+      "Suitable motor capacity" : "3.7KW"
+   },
+   "L510-408-SHxx" : {
+      "Allowable momentary power loss time" : "2.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "7.5HP",
+      "Input voltage range" : "Three Phase 380-480V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-480V",
+      "Rated capacity" : "9.91KVA",
+      "Rated output current" : "13.0A",
+      "Suitable motor capacity" : "5.5KW"
+   },
+   "L510-408-SHxx-xP" : {
+      "Allowable momentary power loss time" : "2.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "7.5HP",
+      "Input voltage range" : "Three Phase 380-480V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-480V",
+      "Rated capacity" : "9.91KVA",
+      "Rated output current" : "13.0A",
+      "Suitable motor capacity" : "5.5KW"
+   },
+   "L510-410-SHxx" : {
+      "Allowable momentary power loss time" : "2.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "10HP",
+      "Input voltage range" : "Three Phase 380-480V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-480V",
+      "Rated capacity" : "13.34KVA",
+      "Rated output current" : "17.5A",
+      "Suitable motor capacity" : "7.5KW"
+   },
+   "L510-410-SHxx-xP" : {
+      "Allowable momentary power loss time" : "2.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "10HP",
+      "Input voltage range" : "Three Phase 380-480V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-480V",
+      "Rated capacity" : "13.34KVA",
+      "Rated output current" : "17.5A",
+      "Suitable motor capacity" : "7.5KW"
+   },
+   "L510-415-SHxx" : {
+      "Allowable momentary power loss time" : "2.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "15HP",
+      "Input voltage range" : "Three Phase 380-480V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-480V",
+      "Rated capacity" : "18.29KVA",
+      "Rated output current" : "24A",
+      "Suitable motor capacity" : "11KW"
+   },
+   "L510-415-SHxx-xP" : {
+      "Allowable momentary power loss time" : "2.0S",
+      "Enclosure" : "IP20",
+      "Horse power" : "15HP",
+      "Input voltage range" : "Three Phase 380-480V(-15%~+10%),50/60Hz",
+      "Output voltage range" : "Three Phase,0-480V",
+      "Rated capacity" : "18.29KVA",
+      "Rated output current" : "24A",
+      "Suitable motor capacity" : "11KW"
+   }
+}
