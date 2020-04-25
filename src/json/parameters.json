@@ -155,13 +155,12 @@
       "00" : {
          "default" : "1",
          "options" : {
-            "1" : "General Use (50Hz)",
-            "2" : "High Start Torque (50Hz)",
-            "3" : "Decreasing Torque (50Hz)",
-            "4" : "General Use (60Hz)",
-            "5" : "High Start Torque (60Hz)",
-            "6" : "Decreasing Torque (60Hz)",
-            "7" : "Custom (Set 01-02~01-09)"
+            "0" : "General Use (50Hz)",
+            "1" : "High Start Torque (50Hz)",
+            "2" : "Decreasing Torque (50Hz)",
+            "3" : "General Use (60Hz)",
+            "4" : "High Start Torque (60Hz)",
+            "5" : "Decreasing Torque (60Hz)"
          },
          "name" : "Volts/Hz Patterns(V/F)"
       },
@@ -1618,7 +1617,15 @@
          "name" : "Parameter Lock Code"
       },
       "08" : {
-         "default" : "0000",
+         "default" : "0",
+         "options" : {
+            "0" : "Don't reset",
+            "1150" : "50Hz, 220V/380V drive",
+            "1160" : "60Hz, 220V/380V drive",
+            "1250" : "50Hz, 230V/400V drive",
+            "1260" : "60Hz, 230V/460V drive",
+            "1350" : "50Hz, 220V/415V drive"
+         },
          "name" : "Reset Drive to Factory Settings"
       },
       "name" : "Inspection and Maintenance functions"
