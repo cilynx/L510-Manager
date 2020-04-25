@@ -156,14 +156,19 @@ public class Option : GLib.Object {
 }
 
 public class Parameter : GLib.Object {
-    private Option[] options;
-    private string _dflt;
-
     public Group group;
     public string name;
     public string number;
     public string unit;
 
+    private Option[] _options;
+    public Option[] options {
+        get {
+            return _options;
+        }
+    }
+
+    public string _dflt;
     public string dflt {
         get {
             print("Getting dflt.  _dflt is:%s\n", _dflt);
@@ -213,7 +218,7 @@ public class Parameter : GLib.Object {
 
     public void add_option (string id, string name) {
         var option = new Option (id, name);
-        options += option;
+        _options += option;
         print("%s\n", option.name);
     }
 

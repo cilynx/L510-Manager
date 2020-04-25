@@ -72,7 +72,80 @@ namespace L510_manager {
             var save_profile_action = new SimpleAction ("save_profile", null);
             save_profile_action.activate.connect(() => {
                 var path = Dialogs.save_file(this);
-                print ("Save " + path + "\n");
+                if (path != null) {
+                    if (!vfd.is_connected) { vfd.connect (); }
+                    if (vfd.is_connected) {
+                        ProgressDialog progress_dialog = new ProgressDialog(this, "Saving Profile from VFD state");
+                        progress_dialog.total = vfd_config.parameter_count + vfd_config.group_count;
+                        int index = 0;
+                        string group_number = null;
+                        string last_group = "00";
+                        Json.Builder profile = new Json.Builder ();
+                        profile.begin_object ();
+                        profile.set_member_name (last_group);
+                        profile.begin_object ();
+                        all_parameters_treeview.get_model ().@foreach((model, path, iter) => {
+                            string parameter_number = null;
+                            model.get(iter, GROUP_COLUMN, &group_number, PARAMETER_COLUMN, &parameter_number, -1);
+
+                            if (group_number != last_group) {
+                                profile.set_member_name ("name");
+                                profile.add_string_value (vfd_config.get_group(group_number).name);
+                                profile.end_object ();
+                                profile.set_member_name (group_number);
+                                profile.begin_object ();
+                                last_group = group_number;
+                            }
+
+                            if (parameter_number != null) {
+                                Parameter parameter = vfd_config.get_parameter(group_number + "-" + parameter_number);
+                                profile.set_member_name (parameter_number);
+                                profile.begin_object ();
+                                profile.set_member_name ("default");
+                                profile.add_string_value (parameter._dflt);
+                                if (parameter.has_options) {
+                                    profile.set_member_name ("options");
+                                    profile.begin_object ();
+                                    foreach (Option option in parameter.options) {
+                                        profile.set_member_name(option.id);
+                                        profile.add_string_value(option.name);
+                                    }
+                                    profile.end_object ();
+                                }
+                                profile.set_member_name ("name");
+                                profile.add_string_value (parameter.name);
+                                if (parameter.unit != null) {
+                                    profile.set_member_name ("unit");
+                                    profile.add_string_value(parameter.unit);
+                                }
+                                profile.set_member_name ("value");
+                                profile.add_string_value (vfd.get_raw_parameter_value (parameter));
+                                profile.end_object ();
+                                progress_dialog.text = parameter.group.name;
+                            }
+                            progress_dialog.current = ++index;
+                            if (index == progress_dialog.total) {
+                                progress_dialog.close ();
+                            }
+                            return false;
+                        });
+                        profile.set_member_name ("name");
+                        profile.add_string_value (vfd_config.get_group(group_number).name);
+                        profile.end_object ();
+                        profile.end_object ();
+                        Json.Generator generator = new Json.Generator ();
+                        Json.Node root = profile.get_root ();
+                        generator.set_root (root);
+                        generator.pretty = true;
+                        generator.indent = 3;
+                        generator.to_file (path);
+                    } else {
+                        var dialog = new Gtk.MessageDialog(this, Gtk.DialogFlags.MODAL, Gtk.MessageType.WARNING, Gtk.ButtonsType.OK, "VFD not connected!");
+                        dialog.run ();
+                        dialog.destroy ();
+                    }
+                    print ("Save " + path + "\n");
+                }
             });
             this.add_action (save_profile_action);
 

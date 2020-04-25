@@ -37,6 +37,16 @@ public class VFD : GLib.Object {
         modbus.close ();
     }
 
+    public string get_raw_parameter_value (Parameter parameter) {
+        int register = 0x100 * parameter.group.integer + parameter.integer;
+        uint16 val = 0;
+        if (modbus.read_registers (register, 1, &val) == -1) {
+            error ("Modbus read error.");
+        } else {
+            return val.to_string ();
+        }
+    }
+
     public string get_parameter_value (Parameter parameter) {
         int register = 0x100 * parameter.group.integer + parameter.integer;
         uint16 val = 0;
