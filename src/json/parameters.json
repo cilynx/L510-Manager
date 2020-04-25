@@ -154,6 +154,15 @@
    "01" : {
       "00" : {
          "default" : "1",
+         "options" : {
+            "1" : "General Use (50Hz)",
+            "2" : "High Start Torque (50Hz)",
+            "3" : "Decreasing Torque (50Hz)",
+            "4" : "General Use (60Hz)",
+            "5" : "High Start Torque (60Hz)",
+            "6" : "Decreasing Torque (60Hz)",
+            "7" : "Custom (Set 01-02~01-09)"
+         },
          "name" : "Volts/Hz Patterns(V/F)"
       },
       "01" : {
