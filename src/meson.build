@@ -7,6 +7,10 @@ l510_manager_sources = [
   'vfd.vala',
 ]
 
+vapi_dir = meson.current_source_dir() / 'vapi'
+
+add_project_arguments(['--vapidir', vapi_dir], language: 'vala')
+
 l510_manager_deps = [
   dependency('gio-2.0', version: '>= 2.50'),
   dependency('gtk+-3.0', version: '>= 3.22'),
